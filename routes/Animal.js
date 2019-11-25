@@ -2,15 +2,43 @@ const { Animal } = require('../models')
 
 module.exports = app =>{
     app.get('/animal', (req,res) =>{
-        res.send('GET all animals')
+        Animal.findAll()
+            .then(animal =>{
+                res.json(animal)
+            })
+            .catch(e => console.error(e))
     })
-    app.post('/animal', (req,res) =>{
-        res.send('POST an animal')
+
+
+    app.get('/animal', (req,res) =>{
+        Animal.findOne({where: {id: parseInt(req.params.id) } })
+            .then(animal =>{
+                res.json(animal)
+            })
+            .catch(e => console.error(e))
     })
+
+
+    app.post('/animal/:id', (req,res) =>{
+        Animal.create(req.body)
+            .then(() =>{
+                res.sendStatus(200)
+            })
+            .catch(e => console.error(e))
+    })
+
     app.put('/animal/:id', (req,res) =>{
-        res.send('PUT a specific animal')
+        Animal.findOne({ where:{id: parseInt(req.params.id) } })
+            .then(animal => animal.update(req.body))
+            .then(() => res.sendStatus(200))
+            .catch(e => console.error(e))
     })
+
+
     app.delete('/animal/:id', (req,res) =>{
-        res.send('DELETE an animal')
-    })
+        Animal.findOne({where: { id: parseInt(req.params.id) }})
+            .then(animal => animal.destroy())
+            .then(() => res.sendStatus(200))
+            .catch(e =>console.error(e))
+        })
 }
