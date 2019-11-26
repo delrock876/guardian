@@ -11,6 +11,6 @@ app.use(express.json())
 
 require('./routes')(app)
 
-db.sync()
+db.sync({force: true})
   .then(() => app.listen(3000))
   .catch(e => console.log(e))

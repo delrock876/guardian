@@ -10,8 +10,6 @@ module.exports = (sequalize, Model, DataTypes) => {
   petId: DataTypes.INTEGER
   }, { sequelize, modelName: 'Person' })
 
-
   return Person
-
-
+  
 }

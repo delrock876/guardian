@@ -4,6 +4,7 @@ module.exports = (sequalize, Model, DataTypes) =>{
     Animal.init({
         name: DataTypes.STRING,
         age: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         breed: DataTypes.STRING,
         isFed: DataTypes.BOOLEAN,
         isWalked: DataTypes.BOOLEAN,
@@ -16,5 +17,5 @@ module.exports = (sequalize, Model, DataTypes) =>{
 
     return Animal
 
-    
+
 }
