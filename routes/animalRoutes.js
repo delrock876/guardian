@@ -1,5 +1,6 @@
 const { Animal } = require('../models')
 
+//view all animals
 module.exports = app =>{
     app.get('/animal', (req,res) =>{
         Animal.findAll()
@@ -9,7 +10,7 @@ module.exports = app =>{
             .catch(e => console.error(e))
     })
 
-
+//find specific animal
     app.get('/animal', (req,res) =>{
         Animal.findOne({where: {id: parseInt(req.params.id) } })
             .then(animal =>{
@@ -18,7 +19,7 @@ module.exports = app =>{
             .catch(e => console.error(e))
     })
 
-
+//add new animal 
     app.post('/animal/:id', (req,res) =>{
         Animal.create(req.body)
             .then(() =>{
@@ -27,6 +28,7 @@ module.exports = app =>{
             .catch(e => console.error(e))
     })
 
+    //update animal
     app.put('/animal/:id', (req,res) =>{
         Animal.findOne({ where:{id: parseInt(req.params.id) } })
             .then(animal => animal.update(req.body))
@@ -34,7 +36,7 @@ module.exports = app =>{
             .catch(e => console.error(e))
     })
 
-
+//delete an animal
     app.delete('/animal/:id', (req,res) =>{
         Animal.findOne({where: { id: parseInt(req.params.id) }})
             .then(animal => animal.destroy())
