@@ -2,7 +2,8 @@ module.exports = (sequelize, Model, DataTypes) => {
   class Person extends Model { }
 
   Person.init({
-  name: DataTypes.STRING,
+  firstName: DataTypes.STRING,
+  lastName: DataTypes.STRING,
   age: DataTypes.INTEGER,
   address: DataTypes.STRING,
   phone: DataTypes.STRING,
