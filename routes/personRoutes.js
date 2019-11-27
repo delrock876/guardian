@@ -1,7 +1,9 @@
 const { Person } = require('../models')
 
 module.exports = app =>{
-    app.get('/person', (req,res) =>{
+
+    //get all people
+    app.get('/person', (req, res) =>{
         Person.findAll()
             .then(person =>{
                 res.json(person)
@@ -9,8 +11,8 @@ module.exports = app =>{
             .catch(e => console.error(e))
     })
 
-
-    app.get('/person', (req,res) =>{
+//get specific person
+    app.get('/person/:id', (req, res) =>{
         Person.findOne({where: {id: parseInt(req.params.id) } })
             .then(person =>{
                 res.json(person)
@@ -18,8 +20,8 @@ module.exports = app =>{
             .catch(e => console.error(e))
     })
 
-
-    app.post('/person/:id', (req,res) =>{
+//add new person
+    app.post('/person', (req, res) =>{
         Person.create(req.body)
             .then(() =>{
                 res.sendStatus(200)
@@ -27,14 +29,15 @@ module.exports = app =>{
             .catch(e => console.error(e))
     })
 
-    app.put('/person/:id', (req,res) =>{
+    //update person
+    app.put('/person/:id', (req, res) =>{
         Person.findOne({ where:{id: parseInt(req.params.id) } })
             .then(person => person.update(req.body))
             .then(() => res.sendStatus(200))
             .catch(e => console.error(e))
     })
 
-
+//delete person
     app.delete('/person/:id', (req,res) =>{
         Person.findOne({where: { id: parseInt(req.params.id) }})
             .then(person => person.destroy())
