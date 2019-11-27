@@ -117,6 +117,76 @@
     </div>
   </div>
 
+  <script>
+
+    // get animals
+    const getAnimal = () => {
+      axios.get('/animal')
+      .then(animal => {
+        console.log(animal)
+      })
+      .catch(e => console.log(e))
+    }
+    
+    //add animal
+    const addAnimal = () => {
+      axios.post('/animal', {
+        name: document.getElementById('name').value,
+        breed: document.getElementById('breed').value,
+        age: document.getElementById('age').value,
+        type: document.getElementById('type').value,
+        isFed: document.getElementById('fed').value,
+        isWalked: document.getElementById('walked').value,
+        isClean: document.getElementById('cleaned').value,
+        isPlayed: document.getElementById('played').value,
+        adoptReady: document.getElementById('adoptReady').value,
+        isAdopted: false
+      })
+      .then(() => {
+        console.log('animal Added')
+      })
+      .catch(e => console.log(e))
+    }
+    
+    //update animal
+    const updateAnimal= id => {
+      axios.put(`/animal/:${id}`)
+      .then(() => {
+        console.log('animal updated')
+      })
+      .catch(e => console.log(e))
+    }
+    
+    // remove users
+    
+    const removeAnimal = id => {
+      axios.delete(`/animal/:${id}`)
+      .then(() => {
+        console.log('animal deleted')
+      })
+      .catch(e => console.log(e))
+    }
+    
+    document.getElementById('submitButton').addEventListener('click', e => {
+        e.preventDefault()
+    
+        addAnimal()
+    
+        document.getElementById('name').value = ''
+        document.getElementById('breed').value = ''
+        document.getElementById('age').value = ''
+        document.getElementById('type').value = ''
+        document.getElementById('fed').value = ''
+        document.getElementById('walked').value = ''
+        document.getElementById('cleaned').value = ''
+        document.getElementById('played').value = ''
+        document.getElementById('adoptReady').value = ''
+    
+    })
+    
+    
+    </script>
+
 
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -124,6 +194,7 @@
   <script>const slideMenu = document.querySelectorAll('.sidenav');
     M.Sidenav.init(slideMenu, {});
   </script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </body>
 
 </html>
