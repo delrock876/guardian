@@ -6,12 +6,12 @@ module.exports = (sequelize, Model, DataTypes) =>{
         age: DataTypes.INTEGER,
         type: DataTypes.STRING,
         breed: DataTypes.STRING,
-        isFed: false,
-        isWalked: false,
-        isClean: false,
-        isPlayed: false,
-        adoptReady: false,
-        isAdopted: false
+        isFed:  false,
+        isWalked:  false,
+        isClean:  false,
+        isPlayed:  false,
+        adoptReady:  false,
+        isAdopted:  false
 
     }, { sequelize, modelName: 'animal'})
 
