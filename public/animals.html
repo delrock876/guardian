@@ -6,22 +6,47 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
       <!-- Compiled and minified CSS -->
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Barlow|Montserrat|Viga&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <link rel="stylesheet" href="./style.css">
   <title>Animals Page</title>
 </head>
 <body>
-
+  <!-- main nav -->
   <nav>
     <div class="nav-wrapper">
-      <a href="#" class="brand-logo" id="logo">Guardian</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="adoption.html" class="headerLine">Adoption</a></li>
-        <li><a href="intake.html" class="headerLine">Intake</a></li>
-        <li><a href="animals.html" class="headerLine">Animals</a></li>
-      </ul>
+      <div class="container">
+        <a href="#" class="sidenav-trigger" data-target="slide-out"><i class="material-icons">menu</i></a>
+        <a href="index.html" class="brand-logo" id="logo">GUARDIAN</a>
+        <ul class="right hide-on-med-and-down">
+          <li class="navMenu"><a href="adoption.html">Adoption</a></li>
+          <li class="navMenu"><a href="intake.html">Intake</a></li>
+          <li class="navMenu"><a href="animals.html">Animals</a></li>
+        </ul>
+      </div>
     </div>
   </nav>
+  <!-- sidenav -->
+  <ul class="sidenav" id="slide-out">
+    <li>
+      <a href="adoption.html">
+        <p>Adoption</p>
+      </a>
+    </li>
+    <li>
+      <a href="intake.html">
+        <p>Intake</p>
+      </a>
+    </li>
+    <li>
+      <a href="animals.html">
+        <p>Animals</p>
+      </a>
+    </li>
+  </ul>
 
+<br>
+<br>
 <!-- Animal cards -->
   <div class="row">
 
@@ -30,7 +55,7 @@
         <div class="card-image">
           <img src="./assets/images/snow.jpeg">
           <span class="card-title">Snow</span>
-          <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">+</i></a>
+          <a class="btn-floating halfway-fab waves-effect waves-light teal lighten-3"><i class="material-icons">+</i></a>
         </div>
         <div class="card-content">
           <p>
@@ -49,7 +74,7 @@
         <div class="card-image">
           <img src="./assets/images/snow.jpeg">
           <span class="card-title">Snow</span>
-          <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">+</i></a>
+          <a class="btn-floating halfway-fab waves-effect waves-light teal lighten-3"><i class="material-icons">+</i></a>
         </div>
         <div class="card-content">
           <p>
@@ -68,7 +93,7 @@
         <div class="card-image">
           <img src="./assets/images/snow.jpeg">
           <span class="card-title">Snow</span>
-          <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">+</i></a>
+          <a class="btn-floating halfway-fab waves-effect waves-light teal lighten-3"><i class="material-icons">+</i></a>
         </div>
         <div class="card-content">
           <p>

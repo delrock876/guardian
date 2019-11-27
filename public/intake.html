@@ -1,61 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <!-- Compiled and minified CSS -->
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-      <link rel="stylesheet" href="./style.css">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Barlow|Montserrat|Viga&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
   <title>Intake Page</title>
 </head>
-<body>
 
+<body>
+  <!-- main nav -->
   <nav>
     <div class="nav-wrapper">
-      <a href="#" class="brand-logo" id="logo">Guardian</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="adoption.html" class="headerLine">Adoption</a></li>
-        <li><a href="intake.html" class="headerLine">Intake</a></li>
-        <li><a href="animals.html" class="headerLine">Animals</a></li>
-      </ul>
+      <div class="container">
+        <a href="#" class="sidenav-trigger" data-target="slide-out"><i class="material-icons">menu</i></a>
+        <a href="index.html" class="brand-logo" id="logo">GUARDIAN</a>
+        <ul class="right hide-on-med-and-down">
+          <li class="navMenu"><a href="adoption.html">Adoption</a></li>
+          <li class="navMenu"><a href="intake.html">Intake</a></li>
+          <li class="navMenu"><a href="animals.html">Animals</a></li>
+        </ul>
+      </div>
     </div>
   </nav>
-  
+  <!-- sidenav -->
+  <ul class="sidenav" id="slide-out">
+    <li>
+      <a href="adoption.html">
+        <p>Adoption</p>
+      </a>
+    </li>
+    <li>
+      <a href="intake.html">
+        <p>Intake</p>
+      </a>
+    </li>
+    <li>
+      <a href="animals.html">
+        <p>Animals</p>
+      </a>
+    </li>
+  </ul>
+
+  <br>
+  <br>
   <div class="container">
     <div class="row">
       <form class="col s12">
         <div class="row">
           <div class="input-field col s6">
-            <input placeholder="First Name" id="first_name" type="text" class="validate">
-            <label for="first_name">Name</label>
+            <input placeholder="First Name" id="name" type="text" class="validate">
+            <label for="name">Name</label>
           </div>
-  
           <div class="input-field col s6">
-            <input placeholder="First Name" id="first_name" type="text" class="validate">
-            <label for="last_name">Breed/ Type</label>
+            <input placeholder="Animal Type" id="type" type="text" class="validate">
+            <label for="type">Type</label>
           </div>
         </div>
-  
-        <div class="input-field col s6">
-          <input placeholder="Email" id="email" type="text" class="validate">
-          <label for="email">Age</label>
+
+        <div class="row">
+          <div class="input-field col s6">
+            <input placeholder="Animal Breed" id="breed" type="text" class="validate">
+            <label for="breed">Breed</label>
+          </div>
+          <div class="input-field col s6">
+            <input placeholder="Animal Age" id="age" type="text" class="validate">
+            <label for="age">Age</label>
+          </div>
         </div>
-  
-        <div class="input-field col s6">
-          <input placeholder="Phone Number" id="phoneNumber" type="text" class="validate">
-          <label for="phone">Health Stats</label>
+
+        <div class="row">
+          <div class="input-field col s6">
+            <input placeholder="Animal has been fed" id="fed" type="text" class="validate">
+            <label for="fed">Fed</label>
+          </div>
+          <div class="input-field col s6">
+            <input placeholder="Animal has been walked" id="walked" type="text" class="validate">
+            <label for="walked">Walked</label>
+          </div>
         </div>
+
+        <div class="row">
+          <div class="input-field col s6">
+            <input placeholder="Animal has been cleaned" id="cleaned" type="text" class="validate">
+            <label for="cleaned">Cleaned</label>
+          </div>
+        <div class="input-field col s6">
+          <input placeholder="Animal has played" id="played" type="text" class="validate">
+          <label for="played">Played</label>
+        </div>
+      </div>
+
+    <div class="row">
+      <div class="input-field col s6">
+        <input placeholder="Animal is adopt ready" id="adoptReady" type="text" class="validate">
+        <label for="adoptReady">Adopt Ready</label>
+      </div>
     </div>
-  
+
     </form>
     <div class="row">
       <div class="col s12">
         <div class="row">
           <div class="input-field col s6">
             <input type="text" id="autocomplete-input" class="autocomplete" placeholder="Enter ID of pet">
-            <button class="btn-large btn-floating waves-effect waves-light green" id="submitButton">
+            <button class="btn-large btn-floating waves-effect waves-light teal lighten-3" id="submitButton">
               <i class="material-icons">pets</i>
           </div>
         </div>
@@ -64,8 +118,9 @@
   </div>
 
 
-      <!-- Compiled and minified JavaScript -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        <script src="./app.js"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="./app.js"></script>
 </body>
+
 </html>
