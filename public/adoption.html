@@ -60,7 +60,7 @@
         </div>
 
         <div class="input-field col s6">
-          <input placeholder="First Name" id="first_name" type="text" class="validate">
+          <input placeholder="First Name" id="last_name" type="text" class="validate">
           <label for="last_name">Last Name</label>
         </div>
       </div>
@@ -82,16 +82,90 @@
       <div class="row">
         <div class="input-field col s6">
           <input type="text" id="autocomplete-input" class="autocomplete" placeholder="Enter ID of pet">
-          <button class="btn-large btn-floating waves-effect waves-light teal lighten-3" id="submitButton">
-            <i class="material-icons">pets</i>
+
+          <button class="btn-large btn-floating waves-effect waves-light green">
+            <i class="material-icons" id="submitButton">pets</i>
+
         </div>
       </div>
     </div>
   </div>
   </div>
 
+<script>
+
+//get all users
+const getPerson = () => {
+  axios.get('/person')
+  .then(person => {
+    console.log(person)
+  })
+  .catch(e => console.log(e))
+}
+
+//get specific user
+
+const getUser = () => {
+  axios.get(`/person/:${id}`)
+    .then(user => {
+      console.log(user)
+    })
+    .catch(e => console.log(e))
+}
+
+//add users
+const addPerson = () => {
+  axios.post('/person', {
+    firstName: document.getElementById('first_name').value,
+    lastName: document.getElementById('last_name').value,
+    email: document.getElementById('email').value,
+    phone: document.getElementById('phoneNumber').value
+  })
+  .then(() => {
+    console.log('Person Added')
+  })
+  .catch(e => console.log(e))
+}
+
+//update users
+const updatePerson = id => {
+  axios.put(`/person/:${id}`)
+  .then(() => {
+    console.log('person updated')
+  })
+  .catch(e => console.log(e))
+}
+
+// remove users
+
+const removePerson = id => {
+  axios.delete(`/person/:${id}`)
+  .then(() => {
+    console.log('person deleted')
+  })
+  .catch(e => console.log(e))
+}
+
+//button javascript
+
+document.addEventListener('click', e => {
+  e.preventDefault()
+
+  if (event.target.id === 'submitButton') {
+    addPerson()
+    document.getElementById('first_name').value = ''
+    document.getElementById('last_name').value = ''
+    document.getElementById('email').value = ''
+    document.getElementById('phoneNumber').value = ''
+  }
+}
+)
+
+</script>
+
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="./app.js"></script>
 </body>
 
