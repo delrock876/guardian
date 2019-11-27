@@ -1,6 +1,22 @@
-.headerLine {
-  font-size: 30px;
+.navMenu {
+  font-size: 26px;
+  font-family: 'Barlow', sans-serif;
+  color: #003B5C;
 }
+
+.sidenav-trigger {
+font-size: 22px;
+font-family: 'Barlow', sans-serif;
+color: #003B5C;
+}
+
 #logo {
+  margin-left: 10px;
   font-size: 40px;
+  font-family: 'Viga', sans-serif;
+  color: #003B5C;
+}
+
+#header {
+color: #F2C85C;
 }
