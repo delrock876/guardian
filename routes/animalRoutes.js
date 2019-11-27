@@ -2,7 +2,7 @@ const { Animal } = require('../models')
 
 //view all animals
 module.exports = app =>{
-    app.get('/animal', (req,res) =>{
+    app.get('/animal', (req, res) =>{
         Animal.findAll()
             .then(animal =>{
                 res.json(animal)
@@ -11,7 +11,7 @@ module.exports = app =>{
     })
 
 //find specific animal
-    app.get('/animal', (req,res) =>{
+    app.get('/animal/:id', (req, res) =>{
         Animal.findOne({where: {id: parseInt(req.params.id) } })
             .then(animal =>{
                 res.json(animal)
@@ -20,7 +20,7 @@ module.exports = app =>{
     })
 
 //add new animal 
-    app.post('/animal/:id', (req,res) =>{
+    app.post('/animal', (req, res) =>{
         Animal.create(req.body)
             .then(() =>{
                 res.sendStatus(200)
@@ -29,7 +29,7 @@ module.exports = app =>{
     })
 
     //update animal
-    app.put('/animal/:id', (req,res) =>{
+    app.put('/animal/:id', (req, res) =>{
         Animal.findOne({ where:{id: parseInt(req.params.id) } })
             .then(animal => animal.update(req.body))
             .then(() => res.sendStatus(200))
@@ -37,7 +37,7 @@ module.exports = app =>{
     })
 
 //delete an animal
-    app.delete('/animal/:id', (req,res) =>{
+    app.delete('/animal/:id', (req, res) =>{
         Animal.findOne({where: { id: parseInt(req.params.id) }})
             .then(animal => animal.destroy())
             .then(() => res.sendStatus(200))

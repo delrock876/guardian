@@ -13,4 +13,4 @@ require('./routes')(app)
 
 db.sync()
   .then(() => app.listen(process.env.PORT))
-  .catch(e => console.log(e))
+  .catch(e => console.error(e))
