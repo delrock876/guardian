@@ -3,85 +3,91 @@
 // link user info 
 
 //get all users
-const getUser = () => {
-  axios.get('/users')
-  .then(users => {
-    console.log(users)
+const getPerson = () => {
+  axios.get('/person')
+  .then(person => {
+    console.log(person)
   })
   .catch(e => console.log(e))
 }
 
 //add users
-const addUser = (name) => {
-  axios.post('/users', {
+const addPerson = (name) => {
+  axios.post('/person', {
     firstName: document.getElementById('first_name').value,
     lastName: document.getElementById('last_name').value,
     email: document.getElementById('email').value,
     phone: document.getElementById('phoneNumber').value
   })
   .then(() => {
-    console.log('User Added')
+    console.log('Person Added')
   })
   .catch(e => console.log(e))
 }
 
 //update users
-const updateUser = id => {
-  axios.put(`/users/:${id}`)
+const updatePerson = id => {
+  axios.put(`/person/:${id}`)
   .then(() => {
-    console.log('user updated')
+    console.log('person updated')
   })
   .catch(e => console.log(e))
 }
 
 // remove users
 
-const removeUser = id => {
-  axios.delete(`/users/:${id}`)
+const removePerson = id => {
+  axios.delete(`/person/:${id}`)
   .then(() => {
-    console.log('user deleted')
+    console.log('person deleted')
   })
   .catch(e => console.log(e))
 }
 
 // get animals
-const getUser = () => {
-  axios.get('/users')
-  .then(users => {
-    console.log(users)
+const getAnimal = () => {
+  axios.get('/animal')
+  .then(animal => {
+    console.log(animal)
   })
   .catch(e => console.log(e))
 }
 
 //add users
-const addUser = (name) => {
-  axios.post('/users', {
-    firstName: document.getElementById('first_name').value,
-    lastName: document.getElementById('last_name').value,
-    email: document.getElementById('email').value,
-    phone: document.getElementById('phoneNumber').value
+const addAnimal = (animal) => {
+  axios.post('/animal', {
+    name: document.getElementById('name').value,
+    breed: document.getElementById('breed').value,
+    age: document.getElementById('age').value,
+    type: document.getElementById('type').value,
+    isFed: document.getElementById('fed').value,
+    isWalked: document.getElementById('walked').value,
+    isClean: document.getElementById('cleaned').value,
+    isPlayed: document.getElementById('played').value,
+    adoptReady: document.getElementById('adoptReady').value,
+    isAdopted: false
   })
   .then(() => {
-    console.log('User Added')
+    console.log('animal Added')
   })
   .catch(e => console.log(e))
 }
 
 //update users
-const updateUser = id => {
-  axios.put(`/users/:${id}`)
+const updateAnimal= id => {
+  axios.put(`/animal/:${id}`)
   .then(() => {
-    console.log('user updated')
+    console.log('animal updated')
   })
   .catch(e => console.log(e))
 }
 
 // remove users
 
-const removeUser = id => {
-  axios.delete(`/users/:${id}`)
+const removeAnimal = id => {
+  axios.delete(`/animal/:${id}`)
   .then(() => {
-    console.log('user deleted')
+    console.log('animal deleted')
   })
   .catch(e => console.log(e))
 }
