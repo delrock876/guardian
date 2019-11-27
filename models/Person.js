@@ -1,15 +1,14 @@
-module.exports = (sequalize, Model, DataTypes) => {
+module.exports = (sequelize, Model, DataTypes) => {
   class Person extends Model { }
 
   Person.init({
   name: DataTypes.STRING,
   age: DataTypes.INTEGER,
-  address: DataType.STRING,
+  address: DataTypes.STRING,
   phone: DataTypes.STRING,
   email: DataTypes.STRING,
   petId: DataTypes.INTEGER
-  }, { sequelize, modelName: 'Person' })
+  }, { sequelize, modelName: 'person' })
 
   return Person
-  
 }

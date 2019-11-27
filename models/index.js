@@ -1,7 +1,8 @@
-const { Model, Datatypes } = require('sequelize')
+const { Model, DataTypes } = require('sequelize')
 const sequelize = require('../config')
 
-module.exports = app => {
-   require('./Animal.js')(sequelize, Model, Datatypes)
-   require('./Person.js')(sequelize, Model, Datatypes)
-}
+const Animal =  require('./Animal.js')(sequelize, Model, DataTypes)
+
+const Person = require('./Person.js')(sequelize, Model, DataTypes)
+
+module.exports =  {Animal, Person}
