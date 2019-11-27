@@ -1,4 +1,4 @@
-module.exports = (sequalize, Model, DataTypes) =>{
+module.exports = (sequelize, Model, DataTypes) =>{
     class Animal extends Model { }
 
     Animal.init({
@@ -13,9 +13,7 @@ module.exports = (sequalize, Model, DataTypes) =>{
         adoptReady: DataTypes.BOOLEAN,
         isAdopted: DataTypes.BOOLEAN
 
-    }, { sequelize, modelName: 'Animal'})
+    }, { sequelize, modelName: 'animal'})
 
     return Animal
-
-
 }

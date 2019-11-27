@@ -1,4 +1,4 @@
 module.exports = app => {
- require('./Animal.js')(app)
- require('./Person.js')(app)
+ require('./animalRoutes.js')(app)
+ require('./personRoutes.js')(app)
 }
