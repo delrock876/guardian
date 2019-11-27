@@ -2,48 +2,6 @@
 
 // link user info 
 
-//get all users
-const getPerson = () => {
-  axios.get('/person')
-  .then(person => {
-    console.log(person)
-  })
-  .catch(e => console.log(e))
-}
-
-//add users
-const addPerson = (name) => {
-  axios.post('/person', {
-    firstName: document.getElementById('first_name').value,
-    lastName: document.getElementById('last_name').value,
-    email: document.getElementById('email').value,
-    phone: document.getElementById('phoneNumber').value
-  })
-  .then(() => {
-    console.log('Person Added')
-  })
-  .catch(e => console.log(e))
-}
-
-//update users
-const updatePerson = id => {
-  axios.put(`/person/:${id}`)
-  .then(() => {
-    console.log('person updated')
-  })
-  .catch(e => console.log(e))
-}
-
-// remove users
-
-const removePerson = id => {
-  axios.delete(`/person/:${id}`)
-  .then(() => {
-    console.log('person deleted')
-  })
-  .catch(e => console.log(e))
-}
-
 // get animals
 const getAnimal = () => {
   axios.get('/animal')
@@ -93,25 +51,3 @@ const removeAnimal = id => {
 }
 
 
-//button javascript
-
-document.getElementById('submitButton').addEventListener('click', e => {
-  e.preventDefault()
-  let user = {
-    firstName: document.getElementById('first_name').value,
-    lastName: document.getElementById('last_name').value,
-    email: document.getElementById('email').value,
-    phone: document.getElementById('phoneNumber').value
-  }
-  addUser(user)
-
-  document.getElementById('first_name').value = ''
-  document.getElementById('last_name').value = ''
-  document.getElementById('email').value = ''
-  document.getElementById('phoneNumber').value = ''
-
-  console.log(user)
-}
-)
-
-//
