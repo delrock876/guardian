@@ -119,30 +119,11 @@
           .catch(e => console.log(e))
       }
 
-      //update animal
-      const updateAnimal = id => {
-        axios.put(`/animal/:${id}`)
-          .then(() => {
-            console.log('animal updated')
-          })
-          .catch(e => console.log(e))
-      }
-
-      // remove users
-
-      const removeAnimal = id => {
-        axios.delete(`/animal/:${id}`)
-          .then(() => {
-            console.log('animal deleted')
-          })
-          .catch(e => console.log(e))
-      }
 
     document.getElementById('submitButton').addEventListener('click', e => {
         e.preventDefault()
-
+        
         addAnimal()
-
         document.getElementById('name').value = ''
         document.getElementById('breed').value = ''
         document.getElementById('age').value = ''
