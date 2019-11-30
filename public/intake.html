@@ -88,6 +88,9 @@
       </div>
     </div>
 
+
+    <div id="petAdded"></div>
+
     <script>
 
       // get animals
@@ -108,7 +111,11 @@
           type: document.getElementById('type').value
         })
           .then(() => {
-            console.log('animal Added')
+            let successMsg = document.createElement('p')
+            successMsg.innerHTML = `
+            Animal has been succesfully added!
+            `
+            document.getElementById('petAdded').append(successMsg)
           })
           .catch(e => console.log(e))
       }
