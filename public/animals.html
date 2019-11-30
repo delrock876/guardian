@@ -203,13 +203,32 @@
 
 <script>
 
-const getAnimal = () => {
-      axios.get('/animal')
-      .then(animals.forEach(animal => {
-        console.log(animal)
-      }))
-      .catch(e => console.log(e))
-    }
+const getAnimal =_=> {
+        axios.get('/animal')
+          .then(animal => {
+            console.log(animal.data[0].name)
+          })
+          .catch(e => console.log(e))
+      }
+
+          //update animal
+          const updateAnimal = id => {
+        axios.put(`/animal/:${id}`)
+          .then(() => {
+            console.log('animal updated')
+          })
+          .catch(e => console.log(e))
+      }
+
+      // remove animal
+
+      const removeAnimal = id => {
+        axios.delete(`/animal/:${id}`)
+          .then(() => {
+            console.log('animal deleted')
+          })
+          .catch(e => console.log(e))
+      }
     
     getAnimal()
 
