@@ -96,6 +96,7 @@
 
   <div id="currentInq"></div>
 
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script>
 
 //get all users
@@ -113,16 +114,16 @@ const displayAll =_=> {
   .catch(e => console.log(e))
   }
 
-displayAll()
-//get specific user
+// displayAll()
+// //get specific user
 
-const getUser =_=> {
-  axios.get(`/person/:${id}`)
-    .then(user => {
-      console.log(user)
-    })
-    .catch(e => console.log(e))
-}
+// const getUser =_=> {
+//   axios.get(`/person/:${id}`)
+//     .then(user => {
+//       console.log(user)
+//     })
+//     .catch(e => console.log(e))
+// }
 
 //add users
 const addPerson =_=> {
@@ -134,7 +135,7 @@ const addPerson =_=> {
   })
   .then(() => {
 
-    let successMsg = document.createElement('p')
+    let successMsg = document.createElement('elem')
     successMsg.innerHTML = `
         Inquiry complete!
             `
@@ -181,8 +182,6 @@ document.getElementById('submitButton').addEventListener('click', e => {
 
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <!-- <script src="./app.js"></script> -->
   <script>const slideMenu = document.querySelectorAll('.sidenav');
     M.Sidenav.init(slideMenu, {});
   </script>
