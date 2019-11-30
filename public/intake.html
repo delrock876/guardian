@@ -91,7 +91,7 @@
     <script>
 
       // get animals
-      const getAnimal = () => {
+      const getAnimal =_=> {
         axios.get('/animal')
           .then(animal => {
             console.log(animal)
@@ -100,18 +100,12 @@
       }
 
       //add animal
-      const addAnimal = () => {
+      const addAnimal =_=> {
         axios.post('/animal', {
           name: document.getElementById('name').value,
           breed: document.getElementById('breed').value,
           age: document.getElementById('age').value,
-          type: document.getElementById('type').value,
-          isFed: document.getElementById('fed').value,
-          isWalked: document.getElementById('walked').value,
-          isClean: document.getElementById('cleaned').value,
-          isPlayed: document.getElementById('played').value,
-          adoptReady: document.getElementById('adoptReady').value,
-          isAdopted: false
+          type: document.getElementById('type').value
         })
           .then(() => {
             console.log('animal Added')
@@ -138,7 +132,7 @@
           .catch(e => console.log(e))
       }
 
-      document.getElementById('submitButton').addEventListener('click', e => {
+    document.getElementById('submitButton').addEventListener('click', e => {
         e.preventDefault()
 
         addAnimal()
@@ -154,17 +148,14 @@
         document.getElementById('adoptReady').value = ''
 
       })
-
-
     </script>
 
-
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script>const slideMenu = document.querySelectorAll('.sidenav');
-      M.Sidenav.init(slideMenu, {});
-    </script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>const slideMenu = document.querySelectorAll('.sidenav');
+    M.Sidenav.init(slideMenu, {});
+  </script>
 </body>
 
 </html>
