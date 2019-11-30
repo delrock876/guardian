@@ -54,7 +54,7 @@
       <form class="col s12">
         <div class="row">
           <div class="input-field col s6">
-            <input placeholder="First Name" id="name" type="text" class="validate">
+            <input placeholder="Name" id="name" type="text" class="validate">
             <label for="name">Name</label>
           </div>
           <div class="input-field col s6">
@@ -73,112 +73,76 @@
             <label for="age">Age</label>
           </div>
         </div>
+      </form>
 
-        <div class="row">
-          <div class="input-field col s6">
-            <input placeholder="Animal has been fed" id="fed" type="text" class="validate">
-            <!-- <label for="fed">Fed</label> -->
-            <input type="checkbox" id="switch" /><label for="switch">Fed</label>
-          </div>
-          
-
-          <div class="input-field col s6">
-            <input placeholder="Animal has been walked" id="walked" type="text" class="validate">
-            <!-- <label for="walked">Walked</label> -->
-            <input type="checkbox" id="switch" /><label for="switch">Walked</label>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="input-field col s6">
-            <input placeholder="Animal has been cleaned" id="cleaned" type="text" class="validate">
-            <!-- <label for="cleaned">Cleaned</label> -->
-            <input type="checkbox" id="switch" /><label for="switch">Cleaned</label>
-          </div>
-        <div class="input-field col s6">
-          <input placeholder="Animal has played" id="played" type="text" class="validate">
-          <!-- <label for="played">Played</label> -->
-          <input type="checkbox" id="switch" /><label for="switch">Played</label>
-        </div>
-      </div>
-
-    <div class="row">
-      <div class="input-field col s6">
-        <input placeholder="Animal is adopt ready" id="adoptReady" type="text" class="validate">
-        <!-- <label for="adoptReady">Adopt Ready</label> -->
-        <input type="checkbox" id="switch" /><label for="switch">Adopt Ready</label>
-      </div>
-    </div>
-
-    </form>
-    <div class="row">
-      <div class="col s12">
-        <div class="row">
-          <div class="input-field col s6">
-            <input type="text" id="autocomplete-input" class="autocomplete" placeholder="Enter ID of pet">
-            <button class="btn-large btn-floating waves-effect waves-light teal lighten-3" id="submitButton">
-              <i class="material-icons">pets</i>
+      <div class="row">
+        <div class="col s12">
+          <div class="row">
+            <div class="input-field col s6">
+              <input type="text" id="autocomplete-input" class="autocomplete" placeholder="Enter ID of pet">
+              <button class="btn-large btn-floating waves-effect waves-light teal lighten-3" id="submitButton">
+                <i class="material-icons">pets</i>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <script>
+    <script>
 
-    // get animals
-    const getAnimal = () => {
-      axios.get('/animal')
-      .then(animal => {
-        console.log(animal)
-      })
-      .catch(e => console.log(e))
-    }
-    
-    //add animal
-    const addAnimal = () => {
-      axios.post('/animal', {
-        name: document.getElementById('name').value,
-        breed: document.getElementById('breed').value,
-        age: document.getElementById('age').value,
-        type: document.getElementById('type').value,
-        isFed: document.getElementById('fed').value,
-        isWalked: document.getElementById('walked').value,
-        isClean: document.getElementById('cleaned').value,
-        isPlayed: document.getElementById('played').value,
-        adoptReady: document.getElementById('adoptReady').value,
-        isAdopted: false
-      })
-      .then(() => {
-        console.log('animal Added')
-      })
-      .catch(e => console.log(e))
-    }
-    
-    //update animal
-    const updateAnimal= id => {
-      axios.put(`/animal/:${id}`)
-      .then(() => {
-        console.log('animal updated')
-      })
-      .catch(e => console.log(e))
-    }
-    
-    // remove users
-    
-    const removeAnimal = id => {
-      axios.delete(`/animal/:${id}`)
-      .then(() => {
-        console.log('animal deleted')
-      })
-      .catch(e => console.log(e))
-    }
-    
-    document.getElementById('submitButton').addEventListener('click', e => {
+      // get animals
+      const getAnimal = () => {
+        axios.get('/animal')
+          .then(animal => {
+            console.log(animal)
+          })
+          .catch(e => console.log(e))
+      }
+
+      //add animal
+      const addAnimal = () => {
+        axios.post('/animal', {
+          name: document.getElementById('name').value,
+          breed: document.getElementById('breed').value,
+          age: document.getElementById('age').value,
+          type: document.getElementById('type').value,
+          isFed: document.getElementById('fed').value,
+          isWalked: document.getElementById('walked').value,
+          isClean: document.getElementById('cleaned').value,
+          isPlayed: document.getElementById('played').value,
+          adoptReady: document.getElementById('adoptReady').value,
+          isAdopted: false
+        })
+          .then(() => {
+            console.log('animal Added')
+          })
+          .catch(e => console.log(e))
+      }
+
+      //update animal
+      const updateAnimal = id => {
+        axios.put(`/animal/:${id}`)
+          .then(() => {
+            console.log('animal updated')
+          })
+          .catch(e => console.log(e))
+      }
+
+      // remove users
+
+      const removeAnimal = id => {
+        axios.delete(`/animal/:${id}`)
+          .then(() => {
+            console.log('animal deleted')
+          })
+          .catch(e => console.log(e))
+      }
+
+      document.getElementById('submitButton').addEventListener('click', e => {
         e.preventDefault()
-    
+
         addAnimal()
-    
+
         document.getElementById('name').value = ''
         document.getElementById('breed').value = ''
         document.getElementById('age').value = ''
@@ -188,18 +152,18 @@
         document.getElementById('cleaned').value = ''
         document.getElementById('played').value = ''
         document.getElementById('adoptReady').value = ''
-    
-    })
-    
-    
+
+      })
+
+
     </script>
 
 
-  <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script>const slideMenu = document.querySelectorAll('.sidenav');
-    M.Sidenav.init(slideMenu, {});
-  </script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>const slideMenu = document.querySelectorAll('.sidenav');
+      M.Sidenav.init(slideMenu, {});
+    </script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </body>
 
