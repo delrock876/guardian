@@ -91,20 +91,32 @@
   </div>
   </div>
 
+<div id="inqAdded"></div>
+
+
+  <div id="currentInq"></div>
+
 <script>
 
 //get all users
-const getPerson = () => {
-  axios.get('/person')
-  .then(person => {
-    console.log(person)
-  })
+const displayAll =_=> {
+  axios.get('/person' , {firstName, lastName, phone, petId})
+  .then(person.forEach(elem => {
+    let inquiries = document.createElement('p')
+    inquiries.innerHTML = `
+    Name: ${firstName} ${lastName}
+    Phone:${phone}
+    Pet:${petId}
+    `
+    document.getElementById('currentInq').append(inquiries)
+  }))
   .catch(e => console.log(e))
-}
+  }
 
+displayAll()
 //get specific user
 
-const getUser = () => {
+const getUser =_=> {
   axios.get(`/person/:${id}`)
     .then(user => {
       console.log(user)
@@ -113,7 +125,7 @@ const getUser = () => {
 }
 
 //add users
-const addPerson = () => {
+const addPerson =_=> {
   axios.post('/person', {
     firstName: document.getElementById('first_name').value,
     lastName: document.getElementById('last_name').value,
@@ -121,7 +133,13 @@ const addPerson = () => {
     phone: document.getElementById('phoneNumber').value
   })
   .then(() => {
-    console.log('Person Added')
+
+    let successMsg = document.createElement('p')
+    successMsg.innerHTML = `
+            Inquiry complete!
+            `
+    document.getElementById('inqAdded').append(successMsg)
+    // console.log('Person Added')
   })
   .catch(e => console.log(e))
 }
@@ -149,14 +167,13 @@ const removePerson = id => {
 
 document.getElementById('submitButton').addEventListener('click', e => {
   e.preventDefault()
-
-  if (event.target.id === 'submitButton') {
+  
     addPerson()
     document.getElementById('first_name').value = ''
     document.getElementById('last_name').value = ''
     document.getElementById('email').value = ''
     document.getElementById('phoneNumber').value = ''
-  }
+  
 }
 )
 
