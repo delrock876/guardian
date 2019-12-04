@@ -3,6 +3,7 @@ module.exports = (sequelize, Model, DataTypes) =>{
 
     Animal.init({
         name: DataTypes.STRING,
+        image: DataTypes.STRING,
         age: DataTypes.INTEGER,
         type: DataTypes.STRING,
         breed: DataTypes.STRING,

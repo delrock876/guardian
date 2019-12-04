@@ -73,6 +73,12 @@
             <label for="age">Age</label>
           </div>
         </div>
+
+        <div class="row">
+            <div class="input-field col s6">
+              <input placeholder="Link to image" id="image" type="text" class="validate">
+              <label for="image">Image</label>
+            </div>
       </form>
 
       <div class="row">
@@ -116,7 +122,8 @@
           name: document.getElementById('name').value,
           breed: document.getElementById('breed').value,
           age: document.getElementById('age').value,
-          type: document.getElementById('type').value
+          type: document.getElementById('type').value,
+          image: document.getElementById('image').value
         })
           .then(() => {
             console.log('ok')
@@ -133,6 +140,7 @@
         document.getElementById('breed').value = ''
         document.getElementById('age').value = ''
         document.getElementById('type').value = ''
+        document.getElementById('image').value = ''
 
         M.Modal.init(document.querySelectorAll(`.modal`), {})
     M.Modal.getInstance(document.getElementById(`info`)).open()

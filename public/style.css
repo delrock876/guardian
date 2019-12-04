@@ -34,6 +34,16 @@ h4 {
   color: #003B5C;
 }
 
+.card1 {
+  height: 600px;
+  width: 350px;
+  border: 1px solid black;
+}
+
+#image1 {
+  height: 200px;
+  width: 350px;
+}
 /* toggle switch color */
 /* .switch label input[type=checkbox]:checked+.lever {
     background-color: #003B5C;
