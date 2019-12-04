@@ -18,11 +18,20 @@ color: #003B5C;
   color: #003B5C;
 }
 
+/* nav header background */
 nav .nav-wrapper {
     background: #9e9691;
     height: 65px;
 }
 
+/* HP dashboard icons */
 .material-icons {
-  color: #4db6ac;
+  color: #003B5C;
 }
+
+/* toggle switch color */
+/* .switch label input[type=checkbox]:checked+.lever {
+    background-color: #003B5C;
+} */
+
+
