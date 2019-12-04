@@ -12,7 +12,7 @@ module.exports = app =>{
 
     // get count 
     app.get('/animal/count', (req, res) =>{
-        Person.findAll()
+        Animal.findAll()
             .then(animal =>{
                 res.json(animal.length)
             })
