@@ -14,42 +14,42 @@
 </head>
 
 <body>
-  <!-- main nav -->
-  <nav>
-    <div class="nav-wrapper">
-      <div class="container">
-        <a href="#" class="sidenav-trigger" data-target="slide-out"><i class="material-icons">menu</i></a>
-        <a href="index.html" class="brand-logo" id="logo">GUARDIAN</a>
-        <ul class="right hide-on-med-and-down">
-          <li class="navMenu"><a href="adoption.html">Adoption</a></li>
-          <li class="navMenu"><a href="intake.html">Intake</a></li>
-          <li class="navMenu"><a href="animals.html">Animals</a></li>
-        </ul>
+    <!-- main nav -->
+    <nav>
+      <div class="nav-wrapper">
+        <div class="container">
+          <a href="#" class="sidenav-trigger" data-target="slide-out"><i class="material-icons">menu</i></a>
+          <a href="index.html" class="brand-logo" id="logo">GUARDIAN</a>
+          <ul class="right hide-on-med-and-down">
+            <li class="navMenu"><a href="adoption.html">Adoption</a></li>
+            <li class="navMenu"><a href="intake.html">Intake</a></li>
+            <li class="navMenu"><a href="animals.html">Animals</a></li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </nav>
-  <!-- sidenav -->
-  <ul class="sidenav" id="slide-out">
-    <li>
-      <a href="adoption.html">
-        <p>Adoption</p>
-      </a>
-    </li>
-    <li>
-      <a href="intake.html">
-        <p>Intake</p>
-      </a>
-    </li>
-    <li>
-      <a href="animals.html">
-        <p>Animals</p>
-      </a>
-    </li>
-  </ul>
-
-<br>
-<br>
-<div class="container">
+    </nav>
+    <!-- sidenav -->
+    <ul class="sidenav" id="slide-out">
+      <li>
+        <a href="adoption.html">
+          <p>Adoption</p>
+        </a>
+      </li>
+      <li>
+        <a href="intake.html">
+          <p>Intake</p>
+        </a>
+      </li>
+      <li>
+        <a href="animals.html">
+          <p>Animals</p>
+        </a>
+      </li>
+    </ul>
+  
+  <br>
+  <br>
+<div id='container'class="container">
   <div class="row">
     <form class="col s12">
       <div class="row">
@@ -82,21 +82,29 @@
         <div class="input-field col s6">
           <input type="text" id="autocomplete-input" class="autocomplete" placeholder="Enter ID of pet">
 
-          <button class="btn-large btn-floating waves-effect waves-light teal lighten-2">
-            <i class="material-icons" id="submitButton">pets</i>
-
+          <div id="info" class="modal">
+              <div class="modal-content">
+                <h3>Thank You</h3>
+                <p> Your adoption is appreciated.</p>
+              </div>
+              <div class="modal-footer">
+                  <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+                </div>
+            </div>
+                  <button class="btn-large btn-floating waves-effect waves-light teal lighten-3" id="submitButton">
+                    <i class="material-icons">pets</i></button>
         </div>
       </div>
     </div>
   </div>
   </div>
 
-<div id="inqAdded"></div>
-
+<!-- <div id="myModal"></div> -->
 
   <div id="currentInq"></div>
 
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
 <script>
 
 //get all users
@@ -114,16 +122,16 @@ const displayAll =_=> {
   .catch(e => console.log(e))
   }
 
-displayAll()
-//get specific user
+// displayAll()
+// //get specific user
 
-const getUser =_=> {
-  axios.get(`/person/:${id}`)
-    .then(user => {
-      console.log(user)
-    })
-    .catch(e => console.log(e))
-}
+// const getUser =_=> {
+//   axios.get(`/person/:${id}`)
+//     .then(user => {
+//       console.log(user)
+//     })
+//     .catch(e => console.log(e))
+// }
 
 //add users
 const addPerson =_=> {
@@ -134,16 +142,13 @@ const addPerson =_=> {
     phone: document.getElementById('phoneNumber').value
   })
   .then(() => {
-
-    let successMsg = document.createElement('p')
-    successMsg.innerHTML = `
-            Inquiry complete!
-            `
-    document.getElementById('inqAdded').append(successMsg)
-    // console.log('Person Added')
+    console.log('ok')
   })
   .catch(e => console.log(e))
 }
+
+
+
 
 //update users
 const updatePerson = id => {
@@ -175,16 +180,22 @@ document.getElementById('submitButton').addEventListener('click', e => {
     document.getElementById('email').value = ''
     document.getElementById('phoneNumber').value = ''
   
+    M.Modal.init(document.querySelectorAll(`.modal`), {})
+    M.Modal.getInstance(document.getElementById(`info`)).open()
 }
 )
 
 </script>
 
+
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script>const slideMenu = document.querySelectorAll('.sidenav');
+  <script>
+  const slideMenu = document.querySelectorAll('.sidenav');
     M.Sidenav.init(slideMenu, {});
   </script>
+
+
 </body>
 
 </html>
