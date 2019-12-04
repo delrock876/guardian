@@ -453,7 +453,7 @@
 
 </div>
 <!-- End of 1st row animal cards -->
-
+<div id="animalDisplay"></div>
 
 
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -471,8 +471,12 @@ const getAnimal =_=> {
               let animalElem = document.createElement('div')
               animalElem.innerHTML = `
               <p> Name: ${animal.name} </p>
+              <p> Age: ${animal.age} </p>
               <p> Breed: ${animal.breed} </p>
               `
+              animalElem.className = `card`
+
+              document.getElementById('animalDisplay').append(animalElem)
             })
           })
           .catch(e => console.log(e))
