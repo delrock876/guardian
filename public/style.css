@@ -18,13 +18,20 @@ color: #003B5C;
   color: #003B5C;
 }
 
+/* nav header background */
 nav .nav-wrapper {
     background: #9e9691;
     height: 65px;
 }
 
+h4 {
+   font-size: 18px;
+  font-family: 'Barlow', sans-serif;
+  color: #003B5C;
+}
+/* HP dashboard icons */
 .material-icons {
-  color: #4db6ac;
+  color: #003B5C;
 }
 
 .card1 {
@@ -37,3 +44,9 @@ nav .nav-wrapper {
   height: 200px;
   width: 350px;
 }
+/* toggle switch color */
+/* .switch label input[type=checkbox]:checked+.lever {
+    background-color: #003B5C;
+} */
+
+
