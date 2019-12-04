@@ -26,3 +26,14 @@ nav .nav-wrapper {
 .material-icons {
   color: #4db6ac;
 }
+
+.card1 {
+  height: 600px;
+  width: 350px;
+  border: 1px solid black;
+}
+
+#image1 {
+  height: 200px;
+  width: 350px;
+}

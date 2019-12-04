@@ -468,16 +468,69 @@ const getAnimal =_=> {
             data.forEach(animal => {
 
               console.log(animal.name)
-              let div1 = document.createElement('div')
-              div1.className = `col s12 m6 l3`
-              div1.appendChild(document.createElement('div'))
+              let animalElem = document.createElement('div')
               
-              
-              // animalElem.innerHTML = `
-              // <p> Name: ${animal.name} </p>
-              // <p> Age: ${animal.age} </p>
-              // <p> Breed: ${animal.breed} </p>
-              // `
+              animalElem.innerHTML = `
+              <img src="${animal.image}" id='image1'>
+              <p> Name: ${animal.name} </p>
+              <p> Age: ${animal.age} </p>
+              <p> Breed: ${animal.breed} </p>
+              <a class="btn-floating halfway-fab waves-effect waves-light teal lighten-2"><i class="material-icons">+</i></a>
+              <div class="row">
+        <div class="col s6">
+          <p>Fed?</p>
+          <!-- Switch -->
+          <div class="switch">
+            <label>
+              No
+              <input type="checkbox">
+              <span class="lever"></span>
+              Yes
+            </label>
+          </div>
+        </div>
+
+        <div class="col s6">
+          <p>Walked?</p>
+          <!-- Switch -->
+          <div class="switch">
+            <label>
+              No
+              <input type="checkbox">
+              <span class="lever"></span>
+              Yes
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s6">
+          <p>Cleaned?</p>
+          <!-- Switch -->
+          <div class="switch">
+            <label>
+              No
+              <input type="checkbox">
+              <span class="lever"></span>
+              Yes
+            </label>
+          </div>
+        </div>
+        <div class="col s6">
+          <p>Played?</p>
+          <!-- Switch -->
+          <div class="switch">
+            <label>
+              No
+              <input type="checkbox">
+              <span class="lever"></span>
+              Yes
+            </label>
+          </div>
+        </div>
+              `
+              animalElem.className = 'card1'
               document.getElementById('animalDisplay').append(animalElem)
             })
           })
