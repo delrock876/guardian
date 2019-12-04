@@ -57,7 +57,7 @@
             <input placeholder="Name" id="name" type="text" class="validate">
             <label for="name">Name</label>
           </div>
-          <div class="input-field col s6">
+          <div class="input-field col s6 ">
             <input placeholder="Animal Type" id="type" type="text" class="validate">
             <label for="type">Type</label>
           </div>
@@ -73,6 +73,12 @@
             <label for="age">Age</label>
           </div>
         </div>
+
+        <div class="row">
+            <div class="input-field col s6">
+              <input placeholder="Link to image" id="image" type="text" class="validate">
+              <label for="image">Image</label>
+            </div>
       </form>
 
       <div class="row">
@@ -81,11 +87,11 @@
             <div class="input-field col s6">
                 <div id="info" class="modal">
                     <div class="modal-content">
-                      <h3>Thank You</h3>
-                      <p> This is the intake page.</p>
+                      <h4>Thank You!</h4>
+                      <p> Animal intake confirmed.</p>
                     </div>
                     <div class="modal-footer">
-                        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+                        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
                       </div>
                   </div>
                         <button class="btn-large btn-floating waves-effect waves-light teal lighten-3" id="submitButton">
@@ -116,7 +122,8 @@
           name: document.getElementById('name').value,
           breed: document.getElementById('breed').value,
           age: document.getElementById('age').value,
-          type: document.getElementById('type').value
+          type: document.getElementById('type').value,
+          image: document.getElementById('image').value
         })
           .then(() => {
             console.log('ok')
@@ -133,6 +140,7 @@
         document.getElementById('breed').value = ''
         document.getElementById('age').value = ''
         document.getElementById('type').value = ''
+        document.getElementById('image').value = ''
 
         M.Modal.init(document.querySelectorAll(`.modal`), {})
     M.Modal.getInstance(document.getElementById(`info`)).open()

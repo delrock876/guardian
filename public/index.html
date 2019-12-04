@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-<link href="https://fonts.googleapis.com/css?family=Barlow|Montserrat|Viga&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Barlow|Montserrat|Viga&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./style.css">
   <title>Guardian</title>
 </head>
+
 <body>
   <!-- main nav -->
   <nav>
@@ -18,9 +20,9 @@
         <a href="#" class="sidenav-trigger" data-target="slide-out"><i class="material-icons">menu</i></a>
         <a href="index.html" class="brand-logo" id="logo">GUARDIAN</a>
         <ul class="right hide-on-med-and-down">
-      <li class="navMenu"><a href="adoption.html">Adoption</a></li>
-      <li class="navMenu"><a href="intake.html">Intake</a></li>
-      <li class="navMenu"><a href="animals.html">Animals</a></li>
+          <li class="navMenu"><a href="adoption.html">Adoption</a></li>
+          <li class="navMenu"><a href="intake.html">Intake</a></li>
+          <li class="navMenu"><a href="animals.html">Animals</a></li>
         </ul>
       </div>
     </div>
@@ -28,12 +30,12 @@
   <!-- sidenav -->
   <ul class="sidenav" id="slide-out">
     <li class="navMenu">
-      <a href="/adoption.html">
+      <a href="adoption.html">
         <p>Adoption</p>
       </a>
     </li>
     <li class="navMenu">
-      <a href="/intake.html">
+      <a href="intake.html">
         <p>Intake</p>
       </a>
     </li>
@@ -44,46 +46,55 @@
     </li>
   </ul>
 
-<!-- Admin dashboard -->
-<div class="container">
-  <div class="row">
-    <ul class="collapsible">
-      <li>
-        <div class="collapsible-header">
-       <i class="material-icons">pets</i>
-        Pending Adoptions
-        <span class="new badge" id="count"></span></div>
-        <div class="collapsible-body">
-        <p>Adoption registration documents pending finalization.</p>
-        </div>
-      </li>
-      <li>
-        <div class="collapsible-header">
-        <i class="material-icons">error</i>
-        Pending Care
-        <span class="new badge">1</span></div>
-        <div class="collapsible-body">
-        <p>Animals pending care.</p>
-        </div>
-      </li>
-      <li>
-        <div class="collapsible-header">
-          <i class="material-icons">assignment_late</i>
-          Pending Intake
-          <span class="new badge">1</span></div>
-        <div class="collapsible-body">
-          <p>Animals pending submission.</p>
-        </div>
-      </li>
-    </ul>
+<br>
+  <!-- Admin dashboard -->
+  <div class="container">
+    <div class="row">
+      <ul class="collapsible">
+        <li>
+          <div class="collapsible-header">
+            <i class="material-icons">pets</i>
+            Pending Adoptions
+            <span class="new badge">4</span></div>
+          <div class="collapsible-body">
+            <p>Adoption registration documents pending finalization.</p>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header">
+            <i class="material-icons">error</i>
+            Pending Care
+            <span class="new badge">1</span></div>
+          <div class="collapsible-body">
+            <p>Animals pending care.</p>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header">
+            <i class="material-icons">assignment_late</i>
+            Pending Intake
+            <span class="new badge">1</span></div>
+          <div class="collapsible-body">
+            <p>Animals pending submission.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
- </div> 
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-      <script>const slideMenu = document.querySelectorAll('.sidenav');
-        M.Sidenav.init(slideMenu, {});
 
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.js"></script>
+  <script>
+    // sidenav
+    const slideMenu = document.querySelectorAll('.sidenav');
+    M.Sidenav.init(slideMenu, {});
+// collapsible
+    document.addEventListener('DOMContentLoaded', function () {
+      var elems = document.querySelectorAll('.collapsible');
+      //var options ={}
+      var instances = M.Collapsible.init(elems);
+    });
+    
+    
 axios.get('/person/count')
 .then((response)=>{
   document.getElementById('count').innerHTML = `${response.data}`
@@ -91,9 +102,9 @@ axios.get('/person/count')
 })
 .catch(e=>console.error(e))
 
+    
+  </script>
 
-
-
-      </script>
 </body>
+
 </html>
