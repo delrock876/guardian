@@ -45,7 +45,10 @@
       </a>
     </li>
   </ul>
+<<<<<<< HEAD
+=======
 
+>>>>>>> b67c12e3b0a6f4bae7eced5735dd62411c996a97
 <br>
   <!-- Admin dashboard -->
   <div class="container">
@@ -93,18 +96,14 @@
       //var options ={}
       var instances = M.Collapsible.init(elems);
     });
-    
-    
+
 axios.get('/person/count')
 .then((response)=>{
   document.getElementById('count').innerHTML = `${response.data}`
-  // console.log(response.data)
 })
 .catch(e=>console.error(e))
-
     
   </script>
-
 </body>
 
 </html>
