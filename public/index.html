@@ -55,7 +55,7 @@
           <div class="collapsible-header">
             <i class="material-icons">pets</i>
             Pending Adoptions
-            <span class="new badge">4</span></div>
+            <span class="new badge" id="count">4</span></div>
           <div class="collapsible-body">
             <p>Adoption registration documents pending finalization.</p>
           </div>
@@ -83,6 +83,8 @@
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
   <script>
     // sidenav
     const slideMenu = document.querySelectorAll('.sidenav');
@@ -101,6 +103,11 @@ axios.get('/person/count')
   // console.log(response.data)
 })
 .catch(e=>console.error(e))
+
+axios.get('animal/count')
+.then((response) =>{
+  document.getElementById
+})
 
     
   </script>

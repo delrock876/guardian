@@ -10,6 +10,15 @@ module.exports = app =>{
             .catch(e => console.error(e))
     })
 
+    // get count 
+    app.get('/animal/count', (req, res) =>{
+        Person.findAll()
+            .then(animal =>{
+                res.json(animal.length)
+            })
+            .catch(e => console.error(e))
+    })
+
 //find specific animal
     app.get('/animal/:id', (req, res) =>{
         Animal.findOne({where: {id: parseInt(req.params.id) } })
