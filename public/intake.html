@@ -79,8 +79,17 @@
         <div class="col s12">
           <div class="row">
             <div class="input-field col s6">
-              <button class="btn-large btn-floating waves-effect waves-light teal lighten-2" id="submitButton">
-                <i class="material-icons">pets</i></button>
+                <div id="info" class="modal">
+                    <div class="modal-content">
+                      <h3>Thank You</h3>
+                      <p> This is the intake page.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+                      </div>
+                  </div>
+                        <button class="btn-large btn-floating waves-effect waves-light teal lighten-3" id="submitButton">
+                          <i class="material-icons">pets</i></button>
             </div>
           </div>
         </div>
@@ -110,11 +119,7 @@
           type: document.getElementById('type').value
         })
           .then(() => {
-            let successMsg = document.createElement('p')
-            successMsg.innerHTML = `
-            Animal has been succesfully added!
-            `
-            document.getElementById('petAdded').append(successMsg)
+            console.log('ok')
           })
           .catch(e => console.log(e))
       }
@@ -128,6 +133,9 @@
         document.getElementById('breed').value = ''
         document.getElementById('age').value = ''
         document.getElementById('type').value = ''
+
+        M.Modal.init(document.querySelectorAll(`.modal`), {})
+    M.Modal.getInstance(document.getElementById(`info`)).open()
 
       })
     </script>
