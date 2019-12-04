@@ -109,7 +109,7 @@
 
 //get all users
 const displayAll =_=> {
-  axios.get('/person' , {firstName, lastName, phone, petId})
+  axios.get('/person' )
   .then(person.forEach(elem => {
     let inquiries = document.createElement('p')
     inquiries.innerHTML = `
