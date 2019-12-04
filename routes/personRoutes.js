@@ -11,6 +11,15 @@ module.exports = app =>{
             .catch(e => console.error(e))
     })
 
+    //get count
+    app.get('/person/count', (req, res) =>{
+        Person.findAll()
+            .then(person =>{
+                res.json(person.length)
+            })
+            .catch(e => console.error(e))
+    })
+
 //get specific person
     app.get('/person/:id', (req, res) =>{
         Person.findOne({where: {id: parseInt(req.params.id) } })
