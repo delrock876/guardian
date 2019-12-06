@@ -99,25 +99,26 @@
     </div>
   </div>
   <br>
-  <div class="container">
+  <div class="adoptReady">
+  <!-- <div class="container">
     <div class="row">
       <ul class="collection">
         <li class="collection-item avatar">
           <i class="material-icons circle">home</i>
           <span class="title">I'm ready for my new home!</span>
-          <p>Name: 
+          <p>Name: <span id="name"></span>
             <br>
-            Age:
+            Age: <span id="age"></span>
             <br>
-            Type:
+            Type: <span id="type"></span>
             <br>
-            Breed:
+            Breed: <span id="breed"></span>
           </p>
-          <!-- <a href="#!" class="secondary-content"><i class="material-icons">home</i></a> -->
         </li>
       </ul>
     </div>
   </div>
+</div> -->
 
   <!-- <div id="myModal"></div> -->
 
@@ -125,115 +126,110 @@
 
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-  <script>
+  
+<script>
 
-//get all users
-const displayAll =_=> {
-  axios.get('/person' )
-  .then( ( {  data: people }) => {
-    people.forEach(({ firstName, lastName, phone, petId }) => {
-    let inquiries = document.createElement('p')
-    inquiries.innerHTML = `
-    Name: ${firstName} ${lastName}
-    Phone:${phone}
-    Pet:${petId}`
+  //get all users
+      const displayAll =_=> {
+        axios,get('/person')
+        .then(({ data: people }) => {
+          people.forEach(({ firstName, lastName, phone, petId}) => {
+            let inquiries = document.createElement('p')
+            inquiries.innerHTML = `
+            Name: ${firstName} ${lastName}
+            Phone: ${phone}
+            Pet: ${petId}`
 
-document.getElementById('currentInq').append(inquiries)
-        }))
-        .catch(e => console.log(e))
-    }
+            document.getElementById('currentInq').append(inquiries)
+          })
+          .catch(e => console.log(e))
+        })
+      }
+  
+      // displayAll()
+      // //get specific user
+  
+      // const getUser =_=> {
+      //   axios.get(`/person/:${id}`)
+      //     .then(user => {
+      //       console.log(user)
+      //     })
+      //     .catch(e => console.log(e))
+      // }
+  
+      //add users
 
-    // displayAll()
-    // //get specific user
-
-    // const getUser =_=> {
-    //   axios.get(`/person/:${id}`)
-    //     .then(user => {
-    //       console.log(user)
-    //     })
-    //     .catch(e => console.log(e))
-    // }
-
-    //add users
-    const addPerson = _ => {
-      axios.post('/person', {
-        firstName: document.getElementById('first_name').value,
-        lastName: document.getElementById('last_name').value,
-        email: document.getElementById('email').value,
-        phone: document.getElementById('phoneNumber').value
-      })
+      const addPerson = _ => {
+        axios.post('/person', {
+          firstName: document.getElementById('first_name').value,
+          lastName: document.getElementById('last_name').value,
+          email: document.getElementById('email').value,
+          phone: document.getElementById('phoneNumber').value
+        })
         .then(() => {
-          console.log('ok')
+          console.log('OK')
         })
         .catch(e => console.log(e))
-    }
-
-    document.getElementById('currentInq').append(inquiries)
-  })
-})
-  .catch(e => console.log(e))
+      }
+  
+  displayAll()
+  // //get specific user
+  
+  // const getUser =_=> {
+  //   axios.get(`/person/:${id}`)
+  //     .then(user => {
+  //       console.log(user)
+  //     })
+  //     .catch(e => console.log(e))
+  // }
+  
+  //update users
+  const updatePerson = id => {
+    axios.put(`/person/:${id}`)
+    .then(() => {
+      console.log('person updated')
+    })
+    .catch(e => console.log(e))
   }
-
-displayAll()
-// //get specific user
-
-// const getUser =_=> {
-//   axios.get(`/person/:${id}`)
-//     .then(user => {
-//       console.log(user)
-//     })
-//     .catch(e => console.log(e))
-// }
-
-//add users
-const addPerson =_=> {
-  axios.post('/person', {
-    firstName: document.getElementById('first_name').value,
-    lastName: document.getElementById('last_name').value,
-    email: document.getElementById('email').value,
-    phone: document.getElementById('phoneNumber').value
-  })
-  .then(() => {
-    console.log('ok')
-  })
-  .catch(e => console.log(e))
-}
-
-//update users
-const updatePerson = id => {
-  axios.put(`/person/:${id}`)
-  .then(() => {
-    console.log('person updated')
-  })
-  .catch(e => console.log(e))
-}
-
-// remove users
-
-const removePerson = id => {
-  axios.delete(`/person/:${id}`)
-  .then(() => {
-    console.log('person deleted')
-  })
-  .catch(e => console.log(e))
-}
-
-//button javascript
-
-document.getElementById('submitButton').addEventListener('click', e => {
-  e.preventDefault()
   
-    addPerson()
-    document.getElementById('first_name').value = ''
-    document.getElementById('last_name').value = ''
-    document.getElementById('email').value = ''
-    document.getElementById('phoneNumber').value = ''
+  // remove users
   
-    M.Modal.init(document.querySelectorAll(`.modal`), {})
-    M.Modal.getInstance(document.getElementById(`info`)).open()
-}
-)
+  const removePerson = id => {
+    axios.delete(`/person/:${id}`)
+    .then(() => {
+      console.log('person deleted')
+    })
+    .catch(e => console.log(e))
+  }
+  
+  //button javascript
+  
+  document.getElementById('submitButton').addEventListener('click', e => {
+    e.preventDefault()
+    
+      addPerson()
+      document.getElementById('first_name').value = ''
+      document.getElementById('last_name').value = ''
+      document.getElementById('email').value = ''
+      document.getElementById('phoneNumber').value = ''
+    
+      M.Modal.init(document.querySelectorAll(`.modal`), {})
+      M.Modal.getInstance(document.getElementById(`info`)).open()
+  }
+  )
+  
+  const addAdopt = id => {
+    // if the 4 parameters are true = adopt ready
 
+    axios.get('/animal')
+    .then(({ data }) => {
+      console.log(data)
+    })
+    data.forEach(animal => {
+      console.log(animal.name)
+    })
+  }
+  
 </script>
 
 
