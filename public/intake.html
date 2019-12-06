@@ -78,7 +78,7 @@
             <div class="input-field col s6">
               <input placeholder="Link to image" id="image" type="text" class="validate" value="./assets/images/ .jpg">
               <label for="image">Image</label>
-            </div>
+      
       </form>
 
       <div class="row">
@@ -153,6 +153,12 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script>const slideMenu = document.querySelectorAll('.sidenav');
     M.Sidenav.init(slideMenu, {});
+  </script>
+  <script>
+     document.addEventListener('DOMContentLoaded', function () {
+        var elems = document.querySelectorAll('.dropdown-trigger');
+        var instances = M.Dropdown.init(elems, options);
+      });
   </script>
 </body>
 
