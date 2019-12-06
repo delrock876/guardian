@@ -121,44 +121,42 @@
 
   <!-- <div id="myModal"></div> -->
 
-  <div id="currentInq"></div>
 
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
   <script>
 
 //get all users
-const displayAll =_=> {
-  axios.get('/person' )
-  .then( ( {  data: people }) => {
-    people.forEach(({ firstName, lastName, phone, petId }) => {
-    let inquiries = document.createElement('p')
-    inquiries.innerHTML = `
-    Name: ${firstName} ${lastName}
-    Phone:${phone}
-    Pet:${petId}
-    `
-    document.getElementById('currentInq').append(inquiries)
+const displayAll = _ => {
+  axios.get('/person')
+        .then(({data:person}) =>{
+          person.forEach(({firstName, lastName, phone, petId}) =>{
+            let inquiries = document.createElement('p')
+              inquiries.innerText = `
+              Name: ${firstName} ${lastName}
+              Phone: ${phone}
+              Pet: ${petId}
+              `
+          })
+        })
+        .catch(e => console.error(e))
+}
+
+    //add users
+    const addPerson = _ => {
+      axios.post('/person', {
+        firstName: document.getElementById('first_name').value,
+        lastName: document.getElementById('last_name').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phoneNumber').value
+      })
+        .then(() => {
+          console.log('ok')
         })
         .catch(e => console.log(e))
-      }
+    }
 
 displayAll()
-
-
-//add users
-const addPerson =_=> {
-  axios.post('/person', {
-    firstName: document.getElementById('first_name').value,
-    lastName: document.getElementById('last_name').value,
-    email: document.getElementById('email').value,
-    phone: document.getElementById('phoneNumber').value
-  })
-  .then(() => {
-    console.log('ok')
-  })
-  .catch(e => console.log(e))
-}
 
 //update users
 const updatePerson = id => {
