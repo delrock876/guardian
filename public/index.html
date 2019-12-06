@@ -63,7 +63,7 @@
           <div class="collapsible-header">
             <i class="material-icons">error</i>
             Pending Care
-            <span class="new badge">1</span></div>
+            <span class="new badge" id="animal"></span></div>
           <div class="collapsible-body">
             <p>Animals pending care.</p>
           </div>
@@ -82,6 +82,7 @@
   </div>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.js"></script>
+
   <script>
     // sidenav
     const slideMenu = document.querySelectorAll('.sidenav');
@@ -93,11 +94,19 @@
       var instances = M.Collapsible.init(elems);
     });
 
+    // get person count
 axios.get('/person/count')
 .then((response)=>{
   document.getElementById('count').innerHTML = `${response.data}`
 })
 .catch(e=>console.error(e))
+
+// get animal count
+axios.get('/animal/count')
+  .then((response)=>{
+    document.getElementById('animal').innerHTML = `${response.data}`
+  })
+  .catch(e =>console.error(e))
     
   </script>
 </body>
