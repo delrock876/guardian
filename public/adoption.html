@@ -110,7 +110,8 @@
 //get all users
 const displayAll =_=> {
   axios.get('/person' )
-  .then(person.forEach(elem => {
+  .then( ( {  data: people }) => {
+    people.forEach(({ firstName, lastName, phone, petId }) => {
     let inquiries = document.createElement('p')
     inquiries.innerHTML = `
     Name: ${firstName} ${lastName}
@@ -118,11 +119,12 @@ const displayAll =_=> {
     Pet:${petId}
     `
     document.getElementById('currentInq').append(inquiries)
-  }))
+  })
+})
   .catch(e => console.log(e))
   }
 
-// displayAll()
+displayAll()
 // //get specific user
 
 // const getUser =_=> {
