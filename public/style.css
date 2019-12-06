@@ -34,6 +34,11 @@ h4 {
   color: #003B5C;
 }
 
+/* Adopt page icons */
+.material-icons.circle {
+  color: #003B5C;
+}
+
 .card1 {
   height: 600px;
   width: 350px;
