@@ -72,7 +72,7 @@
           <div class="collapsible-header">
             <i class="material-icons">assignment_late</i>
             Pending Intake
-            <span class="new badge">1</span></div>
+            <span class="new badge"></span></div>
           <div class="collapsible-body">
             <p>Animals pending submission.</p>
           </div>
@@ -95,16 +95,18 @@
     });
 
     // get person count
-axios.get('/person/count')
+axios.get('/person')
 .then((response)=>{
-  document.getElementById('count').innerHTML = `${response.data}`
+  console.log(response.data.length)
+  document.getElementById('count').innerHTML = `${response.data.length}`
 })
 .catch(e=>console.error(e))
 
 // get animal count
-axios.get('/animal/count')
+axios.get('/animal')
   .then((response)=>{
-    document.getElementById('animal').innerHTML = `${response.data}`
+    console.log(response.data.length)
+    document.getElementById('animal').innerHTML = `${response.data.length}`
   })
   .catch(e =>console.error(e))
     
