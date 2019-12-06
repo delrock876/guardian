@@ -100,23 +100,7 @@
   </div>
   <br>
   <!-- Collection of adopt ready animals -->
-  <div class="container">
-    <div class="row">
-      <ul class="collection">
-        <li class="collection-item avatar">
-          <i class="material-icons circle">home</i>
-          <span class="title">I'm ready for my new home!</span>
-          <p>Name: <span id="name"></span>
-            <br>
-            Age: <span id="age"></span>
-            <br>
-            Type: <span id="type"></span>
-            <br>
-            Breed: <span id="breed"></span>
-          </p>
-        </li>
-      </ul>
-    </div>
+  <div id="adoptReady">
   </div>
   <div id="currentInq"></div>
 
@@ -197,15 +181,48 @@ const removePerson = id => {
   }
   )
   
-  const addAdopt = id => {
+  const addAdopt = _ => {
     // if the 4 parameters are true = adopt ready
 
     axios.get('/animal')
     .then(({ data }) => {
       console.log(data)
       data.forEach(animal => {
-        console.log(animal.name)
-       
+        console.log(animal.isFed, animal.isClean, animal.isWalked, animal.isPlayed)
+
+        if(animal.isFed === true && animal.isClean === true && animal.isWalked === true && animal.isPlayed === true) {
+          console.log(`
+          Name:${animal.name}
+          Age: ${animal.age}
+          Type: ${animal.type}
+          Breed: ${animal.breed}`)
+
+          let adoptElem = document.createElement('div')
+      
+      adoptElem.innerHTML = `
+          <div class="container">
+          <div class="row">
+            <ul class="collection">
+              <li class="collection-item avatar">
+                <i class="material-icons circle">home</i>
+                <span class="title">I'm ready for my new home!</span>
+                <p>Name: ${animal.name}
+                  <br>
+                  Age: ${animal.age}
+                  <br>
+                  Type: ${animal.type}
+                  <br>
+                  Breed: ${animal.breed}
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+              `
+      document.getElementById('adoptReady').append(adoptElem)
+        } else {
+          console.log(`${animal.name}`)
+        }
     })
   })
   .catch(e => console.log(e))
