@@ -10,15 +10,6 @@ module.exports = app =>{
             .catch(e => console.error(e))
     })
 
-    // get count 
-    app.get('/animal/count', (req, res) =>{
-        Animal.findAll()
-            .then(animal =>{
-                res.json(animal.length)
-            })
-            .catch(e => console.error(e))
-    })
-
 //find specific animal
     app.get('/animal/:id', (req, res) =>{
         Animal.findOne({where: {id: parseInt(req.params.id) } })
@@ -27,6 +18,12 @@ module.exports = app =>{
             })
             .catch(e => console.error(e))
     })
+
+    // app.get('/animalcount', (req, res) => {
+    //     Animal.count()
+    //         .then(count => res.json(count))
+    //         .catch(e => console.error(e))
+    // })
 
 //add new animal 
     app.post('/animal', (req, res) =>{
