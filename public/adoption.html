@@ -14,184 +14,204 @@
 </head>
 
 <body>
-    <!-- main nav -->
-    <nav>
-      <div class="nav-wrapper">
-        <div class="container">
-          <a href="#" class="sidenav-trigger" data-target="slide-out"><i class="material-icons">menu</i></a>
-          <a href="index.html" class="brand-logo" id="logo">GUARDIAN</a>
-          <ul class="right hide-on-med-and-down">
-            <li class="navMenu"><a href="adoption.html">Adoption</a></li>
-            <li class="navMenu"><a href="intake.html">Intake</a></li>
-            <li class="navMenu"><a href="animals.html">Animals</a></li>
-          </ul>
-        </div>
+  <!-- main nav -->
+  <nav>
+    <div class="nav-wrapper">
+      <div class="container">
+        <a href="#" class="sidenav-trigger" data-target="slide-out"><i class="material-icons">menu</i></a>
+        <a href="index.html" class="brand-logo" id="logo">GUARDIAN</a>
+        <ul class="right hide-on-med-and-down">
+          <li class="navMenu"><a href="adoption.html">Adoption</a></li>
+          <li class="navMenu"><a href="intake.html">Intake</a></li>
+          <li class="navMenu"><a href="animals.html">Animals</a></li>
+        </ul>
       </div>
-    </nav>
-    <!-- sidenav -->
-    <ul class="sidenav" id="slide-out">
-      <li>
-        <a href="adoption.html">
-          <p>Adoption</p>
-        </a>
-      </li>
-      <li>
-        <a href="intake.html">
-          <p>Intake</p>
-        </a>
-      </li>
-      <li>
-        <a href="animals.html">
-          <p>Animals</p>
-        </a>
-      </li>
-    </ul>
-  
+    </div>
+  </nav>
+  <!-- sidenav -->
+  <ul class="sidenav" id="slide-out">
+    <li>
+      <a href="adoption.html">
+        <p>Adoption</p>
+      </a>
+    </li>
+    <li>
+      <a href="intake.html">
+        <p>Intake</p>
+      </a>
+    </li>
+    <li>
+      <a href="animals.html">
+        <p>Animals</p>
+      </a>
+    </li>
+  </ul>
+
   <br>
   <br>
-<div id='container'class="container">
-  <div class="row">
-    <form class="col s12">
-      <div class="row">
-        <div class="input-field col s6">
-          <input placeholder="First Name" id="first_name" type="text" class="validate">
-          <label for="first_name">First Name</label>
+  <div id='container' class="container">
+    <div class="row">
+      <form class="col s12">
+        <div class="row">
+          <div class="input-field col s6">
+            <input placeholder="First Name" id="first_name" type="text" class="validate">
+            <label for="first_name">First Name</label>
+          </div>
+
+          <div class="input-field col s6">
+            <input placeholder="First Name" id="last_name" type="text" class="validate">
+            <label for="last_name">Last Name</label>
+          </div>
         </div>
 
         <div class="input-field col s6">
-          <input placeholder="First Name" id="last_name" type="text" class="validate">
-          <label for="last_name">Last Name</label>
+          <input placeholder="Email" id="email" type="text" class="validate">
+          <label for="email">Email</label>
         </div>
-      </div>
 
-      <div class="input-field col s6">
-        <input placeholder="Email" id="email" type="text" class="validate">
-        <label for="email">Email</label>
-      </div>
-
-      <div class="input-field col s6">
-        <input placeholder="Phone Number" id="phoneNumber" type="text" class="validate">
-        <label for="phone">Phone Number</label>
-      </div>
-  </div>
-
-  </form>
-  <div class="row">
-    <div class="col s12">
-      <div class="row">
         <div class="input-field col s6">
-          <input type="text" id="autocomplete-input" class="autocomplete" placeholder="Enter ID of pet">
+          <input placeholder="Phone Number" id="phoneNumber" type="text" class="validate">
+          <label for="phone">Phone Number</label>
+        </div>
+    </div>
 
-          <div id="info" class="modal">
+    </form>
+    <div class="row">
+      <div class="col s12">
+        <div class="row">
+          <div class="input-field col s6">
+            <input type="text" id="autocomplete-input" class="autocomplete" placeholder="Enter ID of pet">
+
+            <div id="info" class="modal">
               <div class="modal-content">
-                <h3>Thank You</h3>
+                <h4>Thank You</h4>
                 <p> Your adoption is appreciated.</p>
               </div>
               <div class="modal-footer">
-                  <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-                </div>
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+              </div>
             </div>
-                  <button class="btn-large btn-floating waves-effect waves-light teal lighten-2" id="submitButton">
-                    <i class="material-icons">pets</i></button>
+            <button class="btn-large btn-floating waves-effect waves-light teal lighten-2" id="submitButton">
+              <i class="material-icons">pets</i></button>
+          </div>
         </div>
       </div>
     </div>
   </div>
+  <br>
+  <div class="container">
+    <div class="row">
+      <ul class="collection">
+        <li class="collection-item avatar">
+          <i class="material-icons circle">home</i>
+          <span class="title">I'm ready for my new home!</span>
+          <p>Name: 
+            <br>
+            Age:
+            <br>
+            Type:
+            <br>
+            Breed:
+          </p>
+          <!-- <a href="#!" class="secondary-content"><i class="material-icons">home</i></a> -->
+        </li>
+      </ul>
+    </div>
   </div>
 
-<!-- <div id="myModal"></div> -->
+  <!-- <div id="myModal"></div> -->
 
   <div id="currentInq"></div>
 
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-<script>
+  <script>
 
-//get all users
-const displayAll =_=> {
-  axios.get('/person' )
-  .then(person.forEach(elem => {
-    let inquiries = document.createElement('p')
-    inquiries.innerHTML = `
+    //get all users
+    const displayAll = _ => {
+      axios.get('/person')
+        .then(person.forEach(elem => {
+          let inquiries = document.createElement('p')
+          inquiries.innerHTML = `
     Name: ${firstName} ${lastName}
     Phone:${phone}
     Pet:${petId}
     `
-    document.getElementById('currentInq').append(inquiries)
-  }))
-  .catch(e => console.log(e))
-  }
+          document.getElementById('currentInq').append(inquiries)
+        }))
+        .catch(e => console.log(e))
+    }
 
-// displayAll()
-// //get specific user
+    // displayAll()
+    // //get specific user
 
-// const getUser =_=> {
-//   axios.get(`/person/:${id}`)
-//     .then(user => {
-//       console.log(user)
-//     })
-//     .catch(e => console.log(e))
-// }
+    // const getUser =_=> {
+    //   axios.get(`/person/:${id}`)
+    //     .then(user => {
+    //       console.log(user)
+    //     })
+    //     .catch(e => console.log(e))
+    // }
 
-//add users
-const addPerson =_=> {
-  axios.post('/person', {
-    firstName: document.getElementById('first_name').value,
-    lastName: document.getElementById('last_name').value,
-    email: document.getElementById('email').value,
-    phone: document.getElementById('phoneNumber').value
-  })
-  .then(() => {
-    console.log('ok')
-  })
-  .catch(e => console.log(e))
-}
-
-
+    //add users
+    const addPerson = _ => {
+      axios.post('/person', {
+        firstName: document.getElementById('first_name').value,
+        lastName: document.getElementById('last_name').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phoneNumber').value
+      })
+        .then(() => {
+          console.log('ok')
+        })
+        .catch(e => console.log(e))
+    }
 
 
-//update users
-const updatePerson = id => {
-  axios.put(`/person/:${id}`)
-  .then(() => {
-    console.log('person updated')
-  })
-  .catch(e => console.log(e))
-}
 
-// remove users
 
-const removePerson = id => {
-  axios.delete(`/person/:${id}`)
-  .then(() => {
-    console.log('person deleted')
-  })
-  .catch(e => console.log(e))
-}
+    //update users
+    const updatePerson = id => {
+      axios.put(`/person/:${id}`)
+        .then(() => {
+          console.log('person updated')
+        })
+        .catch(e => console.log(e))
+    }
 
-//button javascript
+    // remove users
 
-document.getElementById('submitButton').addEventListener('click', e => {
-  e.preventDefault()
-  
-    addPerson()
-    document.getElementById('first_name').value = ''
-    document.getElementById('last_name').value = ''
-    document.getElementById('email').value = ''
-    document.getElementById('phoneNumber').value = ''
-  
-    M.Modal.init(document.querySelectorAll(`.modal`), {})
-    M.Modal.getInstance(document.getElementById(`info`)).open()
-}
-)
+    const removePerson = id => {
+      axios.delete(`/person/:${id}`)
+        .then(() => {
+          console.log('person deleted')
+        })
+        .catch(e => console.log(e))
+    }
 
-</script>
+    //button javascript
+
+    document.getElementById('submitButton').addEventListener('click', e => {
+      e.preventDefault()
+
+      addPerson()
+      document.getElementById('first_name').value = ''
+      document.getElementById('last_name').value = ''
+      document.getElementById('email').value = ''
+      document.getElementById('phoneNumber').value = ''
+
+      M.Modal.init(document.querySelectorAll(`.modal`), {})
+      M.Modal.getInstance(document.getElementById(`info`)).open()
+    }
+    )
+
+  </script>
 
 
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script>
-  const slideMenu = document.querySelectorAll('.sidenav');
+    const slideMenu = document.querySelectorAll('.sidenav');
     M.Sidenav.init(slideMenu, {});
   </script>
 
