@@ -78,6 +78,15 @@
             <div class="input-field col s6">
               <input placeholder="Link to image" id="image" type="text" class="validate">
               <label for="image">Image</label>
+                <!-- Dropdown Trigger -->
+                <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Animal Image</a>
+                
+                <!-- Dropdown Structure -->
+                <ul id='dropdown1' class='dropdown-content'>
+                  <li><a href="#!">Cat</a></li>
+                  <li><a href="#!">Dog</a></li>
+                  <li><a href="#!">Lizard</a></li>
+                </ul>
             </div>
       </form>
 
@@ -153,6 +162,12 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script>const slideMenu = document.querySelectorAll('.sidenav');
     M.Sidenav.init(slideMenu, {});
+  </script>
+  <script>
+     document.addEventListener('DOMContentLoaded', function () {
+        var elems = document.querySelectorAll('.dropdown-trigger');
+        var instances = M.Dropdown.init(elems, options);
+      });
   </script>
 </body>
 
