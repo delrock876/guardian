@@ -177,21 +177,6 @@ const removePerson = id => {
   })
   .catch(e => console.log(e))
 }
-
-//button javascript
-
-document.getElementById('submitButton').addEventListener('click', e => {
-  e.preventDefault()
-  
-  // remove users
-  
-  const removePerson = id => {
-    axios.delete(`/person/:${id}`)
-    .then(() => {
-      console.log('person deleted')
-    })
-    .catch(e => console.log(e))
-  }
   
   //button javascript
   
@@ -215,11 +200,13 @@ document.getElementById('submitButton').addEventListener('click', e => {
     axios.get('/animal')
     .then(({ data }) => {
       console.log(data)
+      data.forEach(animal => {
+        console.log(animal.name)
     })
-    data.forEach(animal => {
-      console.log(animal.name)
-    })
+  })
+  .catch(e => console.log(e))
   }
+  addAdopt()
   
 </script>
 
