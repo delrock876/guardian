@@ -7,7 +7,7 @@
 .sidenav-trigger {
 font-size: 22px;
 font-family: 'Barlow', sans-serif;
-color: #003B5C;
+color: #f3a712;
 }
 
 #logo {
@@ -30,9 +30,7 @@ h4 {
   color: #003B5C;
 }
 /* HP dashboard icons */
-.material-icons {
-  color: #f3a712;
-}
+
 
 /* Adopt page icons */
 .material-icons.circle {
