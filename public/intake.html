@@ -75,40 +75,54 @@
         </div>
 
         <div class="row">
-            <div class="input-field col s6">
-              <input placeholder="Link to image" id="image" type="text" class="validate" value="./assets/images/ .jpg">
-              <label for="image">Image</label>
-      
+          <div class="input-field col s6">
+            <!-- <input placeholder="Link to image" id="image" type="text" class="validate"> -->
+            <select id="selectPicture">
+              <option value="">Choose a picture</option>
+              <option value="dog">Dog</option>
+              <option value="cat">Cat</option>
+              <option value="lizard">Lizard</option>
+            </select>
+            <label for="image">Image</label>
+
+          </div>
+        </div>
       </form>
+    </div>
 
       <div class="row">
         <div class="col s12">
           <div class="row">
             <div class="input-field col s6">
-                <div id="info" class="modal">
-                    <div class="modal-content">
-                      <h4>Thank You!</h4>
-                      <p> Animal intake confirmed.</p>
-                    </div>
-                    <div class="modal-footer">
-                        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
-                      </div>
-                  </div>
-                        <button class="btn-large btn-floating waves-effect waves-light teal lighten-2" id="submitButton">
-                          <i class="material-icons">pets</i></button>
+              <div id="info" class="modal">
+                <div class="modal-content">
+                  <h4>Thank You!</h4>
+                  <p> Animal intake confirmed.</p>
+                </div>
+                <div class="modal-footer">
+                  <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+                </div>
+              </div>
+              <button class="btn-large btn-floating waves-effect waves-light teal lighten-2" id="submitButton">
+                <i class="material-icons">pets</i></button>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-
     <div id="petAdded"></div>
 
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script>
 
+      let elems = document.querySelectorAll('select')
+      M.FormSelect.init(elems, {})
+
       // get animals
-      const getAnimal =_=> {
+      const getAnimal = _ => {
         axios.get('/animal')
           .then(animal => {
             console.log(animal)
@@ -117,13 +131,15 @@
       }
 
       //add animal
-      const addAnimal =_=> {
-        axios.post('/animal', {
+      const addAnimal = _ => {
+       let picture = document.getElementById(('selectPicture').options[document.getElementById('selectPicture').selectedIndex].value)
+      
+        axios.put('/animal', {
           name: document.getElementById('name').value,
           breed: document.getElementById('breed').value,
           age: document.getElementById('age').value,
           type: document.getElementById('type').value,
-          image: document.getElementById('image').value
+          image: `./assets/images/${picture}.jpg`
         })
           .then(() => {
             console.log('ok')
@@ -132,34 +148,31 @@
       }
 
 
-    document.getElementById('submitButton').addEventListener('click', e => {
+      document.getElementById('submitButton').addEventListener('click', e => {
         e.preventDefault()
-        
+
         addAnimal()
         document.getElementById('name').value = ''
         document.getElementById('breed').value = ''
         document.getElementById('age').value = ''
         document.getElementById('type').value = ''
-        document.getElementById('image').value = ''
 
         M.Modal.init(document.querySelectorAll(`.modal`), {})
-    M.Modal.getInstance(document.getElementById(`info`)).open()
+        M.Modal.getInstance(document.getElementById(`info`)).open()
 
       })
     </script>
 
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script>const slideMenu = document.querySelectorAll('.sidenav');
-    M.Sidenav.init(slideMenu, {});
-  </script>
-  <script>
-     document.addEventListener('DOMContentLoaded', function () {
+
+    <script>const slideMenu = document.querySelectorAll('.sidenav');
+      M.Sidenav.init(slideMenu, {});
+    </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
         var elems = document.querySelectorAll('.dropdown-trigger');
         var instances = M.Dropdown.init(elems);
       });
-  </script>
+    </script>
 </body>
 
 </html>
