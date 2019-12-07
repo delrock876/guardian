@@ -15,12 +15,12 @@ color: #003B5C;
   font-size: 40px;
   font-family: 'Montserrat', sans-serif;
   font-style: bold;
-  color: #003B5C;
+  color: #f3a712;
 }
 
 /* nav header background */
 nav .nav-wrapper {
-    background: #9e9691;
+    background: #29335c;
     height: 65px;
 }
 
@@ -31,7 +31,7 @@ h4 {
 }
 /* HP dashboard icons */
 .material-icons {
-  color: #003B5C;
+  color: #f3a712;
 }
 
 /* Adopt page icons */
@@ -58,5 +58,9 @@ h4 {
     background-color: #003B5C;
 } */
 
+
+#count, #animal{
+  background-color:#f77f00;
+}
 
 
