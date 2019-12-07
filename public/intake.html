@@ -132,8 +132,9 @@
 
       //add animal
       const addAnimal = _ => {
-       let picture = document.getElementById(('selectPicture').options[document.getElementById('selectPicture').selectedIndex].value)
-      
+
+       let picture = document.getElementById('selectPicture').options[document.getElementById('selectPicture').selectedIndex].value
+
         axios.put('/animal', {
           name: document.getElementById('name').value,
           breed: document.getElementById('breed').value,
