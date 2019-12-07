@@ -160,9 +160,6 @@
 
     document.addEventListener('click', e => {
       if (e.target.className.includes('lever')) {
-<<<<<<< HEAD
-        // updateAnimal(e.target.parentNode.dataset.animals)
-=======
         let animalId = parseInt(e.target.dataset.animals)
         let property = e.target.id
         let newValue = e.target.previousElementSibling.dataset.state === 'true' ? false : true
@@ -173,7 +170,6 @@
           .then(() => {
             e.target.previousElementSibling.dataset.state = newValue ? 'true' : 'false'
           })
->>>>>>> 05c232aeb3e742c7cc953fde74cee6330c5203f2
       }
     })
 
