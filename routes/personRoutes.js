@@ -44,10 +44,4 @@ module.exports = app => {
             .then(() => res.sendStatus(200))
             .catch(e => console.error(e))
     })
-
-    app.get('*', function (req, res) {
-        res.redirect('/person');
-    });
-
-
 }
