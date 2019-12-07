@@ -1,10 +1,10 @@
-const { Person } = require('../models')
+const { Person, Animal } = require('../models')
 
 module.exports = app =>{
 
     //get all people
     app.get('/person', (req, res) =>{
-        Person.findAll()
+        Person.findAll({ include: Animal })
             .then(person =>{
                 res.json(person)
             })
