@@ -172,7 +172,7 @@ const removePerson = id => {
       data.forEach(animal => {
         // console.log(animal.isFed, animal.isClean, animal.isWalked, animal.isPlayed)
 
-        if(animal.isFed === true && animal.isClean === true && animal.isWalked === true && animal.isPlayed === true) {
+        if(animal.adoptReady === true && animal.isAdopted === false) {
           // console.log(`
           // Name:${animal.name}
           // Age: ${animal.age}

@@ -5,4 +5,6 @@ const Animal =  require('./animal.js')(sequelize, Model, DataTypes)
 
 const Person = require('./Person.js')(sequelize, Model, DataTypes)
 
+Person.hasOne(Animal)
+
 module.exports =  {Animal, Person}

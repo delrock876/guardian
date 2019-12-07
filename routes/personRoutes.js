@@ -1,11 +1,11 @@
-const { Person } = require('../models')
+const { Person, Animal } = require('../models')
 
 module.exports = app => {
 
     //get all people
-    app.get('/person', (req, res) => {
-        Person.findAll()
-            .then(person => {
+    app.get('/person', (req, res) =>{
+        Person.findAll({ include: Animal })
+            .then(person =>{
                 res.json(person)
             })
             .catch(e => console.error(e))
