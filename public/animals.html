@@ -59,16 +59,38 @@
 
   <script>
 
+
+    // const change= (cName, eventTD) =>({
+
+    // document.addEventListener('click', e => {
+    //     if (e.target.className.includes(cName)) {
+    //       let animalId = parseInt(eventTD)
+    //       let property = e.target.id
+    //       let newValue = e.target.previousElementSibling.dataset.state === 'true' ? false : true
+
+    //       axios.put(`/animal/${animalId}`, {
+    //         [property]: newValue
+    //       })
+    //         .then(() => {
+    //           e.target.previousElementSibling.dataset.state = newValue ? 'true' : 'false'
+    //         })
+    //     }
+    //   })
+
+    // }
+
+    // change(lever, event.target.dataset.animals, )
+
+
+
     //function to display animals
 
     const getAnimal = _ => {
       axios.get('/animal')
         .then(({ data }) => {
-          console.log(data)
 
           data.forEach(animal => {
 
-            console.log(animal.name)
             let animalElem = document.createElement('div')
             console.log(animal)
 
@@ -78,7 +100,7 @@
         <div class="card">
         <div class="card-image">
           <img src="${animal.image || './assets/images/default.gif'}">
-          <a class="btn-floating halfway-fab waves-effect waves-light teal-lighten-2"><i class="material-icons">check</i></a>
+          <a class="btn-floating halfway-fab waves-effect waves-light teal-lighten-2"><i class="material-icons" id="addPet" data-animals="${animal.id}" data-state="${animal.adoptReady}">${animal.adoptReady ? 'check' : 'add'}</i></a>
         </div>
         <div class="card-content">
          <p> Name: ${animal.name} </p>
@@ -148,7 +170,6 @@
     }
 
     // remove animal
-
     const removeAnimal = id => {
       axios.delete(`/animal/:${id}`)
         .then(() => {
@@ -158,18 +179,19 @@
     }
 
 
+    const animalUpdater = (id, property, value, cb) =>
+      axios.put(`/animal/${id}`, { [property]: value })
+        .then(cb)
+
+
     document.addEventListener('click', e => {
       if (e.target.className.includes('lever')) {
-        let animalId = parseInt(e.target.dataset.animals)
-        let property = e.target.id
-        let newValue = e.target.previousElementSibling.dataset.state === 'true' ? false : true
-
-        axios.put(`/animal/${animalId}`, {
-          [property]: newValue
+        animalUpdater(parseInt(e.target.dataset.animals), e.target.id, !(e.target.previousElementSibling.dataset.state === 'true'), () => e.target.previousElementSibling.dataset.state = !(e.target.previousElementSibling.dataset.state === 'true'))
+      } else if (e.target.id === 'addPet') {
+        animalUpdater(parseInt(e.target.dataset.animals), 'adoptReady', !(e.target.dataset.state === 'true'), () => {
+          e.target.dataset.state = !(e.target.dataset.state === 'true')
+          e.target.textContent = e.target.dataset.state === 'true' ? 'check' : 'add'
         })
-          .then(() => {
-            e.target.previousElementSibling.dataset.state = newValue ? 'true' : 'false'
-          })
       }
     })
 
