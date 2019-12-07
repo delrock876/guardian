@@ -44,4 +44,8 @@ module.exports = app => {
             .then(() => res.sendStatus(200))
             .catch(e => console.error(e))
     })
+
+    app.get('/', function (req, res) {
+        res.sendFile(path.join(__dirname + '/index.html'))
+    });
 }
