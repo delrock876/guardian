@@ -83,4 +83,16 @@ input:not([type]):focus.valid ~ label, input[type=text]:not(.browser-default):fo
     color: #f3a712;
 }
 
+/* animal image dropdown list */
+.dropdown-content li>span {
+    font-size: 16px;
+    color: #f3a712;
+    display: block;
+    line-height: 22px;
+    padding: 14px 16px;
+}
+
+.select-wrapper input.select-dropdown:focus {
+    border-bottom: 2px solid #29335c;
+}
 
