@@ -36,8 +36,8 @@ h4 {
 
 
 /* Adopt page icons */
-.material-icons.circle {
-  color: #003B5C;
+#home {
+  background-color: #f0cea0;
 }
 
 #image1 {
@@ -76,14 +76,22 @@ h4 {
     background-color: #f3a81263;
 }
 
-/* text field styling */
-input.valid:not([type]), input.valid:not([type]):focus, input.valid[type=text]:not(.browser-default), input.valid[type=text]:not(.browser-default):focus, input.valid[type=password]:not(.browser-default), input.valid[type=password]:not(.browser-default):focus, input.valid[type=email]:not(.browser-default), input.valid[type=email]:not(.browser-default):focus, input.valid[type=url]:not(.browser-default), input.valid[type=url]:not(.browser-default):focus, input.valid[type=time]:not(.browser-default), input.valid[type=time]:not(.browser-default):focus, input.valid[type=date]:not(.browser-default), input.valid[type=date]:not(.browser-default):focus, input.valid[type=datetime]:not(.browser-default), input.valid[type=datetime]:not(.browser-default):focus, input.valid[type=datetime-local]:not(.browser-default), input.valid[type=datetime-local]:not(.browser-default):focus, input.valid[type=tel]:not(.browser-default), input.valid[type=tel]:not(.browser-default):focus, input.valid[type=number]:not(.browser-default), input.valid[type=number]:not(.browser-default):focus, input.valid[type=search]:not(.browser-default), input.valid[type=search]:not(.browser-default):focus, textarea.materialize-textarea.valid, textarea.materialize-textarea.valid:focus, .select-wrapper.valid>input.select-dropdown {
-    border-bottom: 1px solid #29335c;
-    -webkit-box-shadow: 0 1px 0 0 #29335c;
-    box-shadow: 0 1px 0 0 #29335c;
-}
+/* input field border color */
+  .input-field input[type]:not([readonly]),
+    .input-field input[type]:focus:not([readonly]),
+    .input-field textarea:not([readonly]),
+    .input-field textarea:focus:not([readonly]) {
+        border-bottom: 1px solid #f0cea0;
+        box-shadow: 0 1px 0 0 #f0cea0;
+    }
 
-input:not([type]):focus.valid ~ label, input[type=text]:not(.browser-default):focus.valid ~ label, input[type=password]:not(.browser-default):focus.valid ~ label, input[type=email]:not(.browser-default):focus.valid ~ label, input[type=url]:not(.browser-default):focus.valid ~ label, input[type=time]:not(.browser-default):focus.valid ~ label, input[type=date]:not(.browser-default):focus.valid ~ label, input[type=datetime]:not(.browser-default):focus.valid ~ label, input[type=datetime-local]:not(.browser-default):focus.valid ~ label, input[type=tel]:not(.browser-default):focus.valid ~ label, input[type=number]:not(.browser-default):focus.valid ~ label, input[type=search]:not(.browser-default):focus.valid ~ label, textarea.materialize-textarea:focus.valid ~ label {
+/* label color */
+  .input-field input[type]:focus:not([readonly])+label,
+    .input-field textarea:focus:not([readonly])+label {
+        color: #29335c;
+    }
+
+label {
     color: #f3a712;
 }
 
