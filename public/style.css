@@ -15,6 +15,7 @@ color: #f3a712;
 }
 
 #logo {
+  margin-top: 4px;
   margin-left: 10px;
   font-size: 40px;
   font-family: 'Montserrat', sans-serif;
@@ -91,20 +92,17 @@ h4 {
         color: #29335c;
     }
 
-label {
-    color: #f3a712;
-}
 
 /* animal image dropdown list */
 .dropdown-content li>span {
     font-size: 16px;
-    color: #f3a712;
+    color: #29335c;
     display: block;
     line-height: 22px;
     padding: 14px 16px;
 }
 
 .select-wrapper input.select-dropdown:focus {
-    border-bottom: 2px solid #29335c;
+    border-bottom: 2px solid #f0cea0;
 }
 
