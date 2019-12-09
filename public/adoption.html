@@ -162,7 +162,7 @@ const removePerson = id => {
     let id = document.getElementById('petId').value
     
       addPerson()
-      
+
       document.getElementById('first_name').value = ''
       document.getElementById('last_name').value = ''
       document.getElementById('email').value = ''
@@ -177,6 +177,9 @@ const removePerson = id => {
 
   const adopt  = _ => {
     axios.put('/person')
+    .then(({ data }) => {
+      console.log(data)
+    })
   }
   
   const addAdopt = _ => {
@@ -184,7 +187,6 @@ const removePerson = id => {
 
     axios.get('/animal')
     .then(({ data }) => {
-      console.log(data)
       data.forEach(animal => {
         // console.log(animal.isFed, animal.isClean, animal.isWalked, animal.isPlayed)
 
@@ -228,6 +230,7 @@ const removePerson = id => {
   .catch(e => console.log(e))
   }
   addAdopt()
+  adopt()
   
 </script>
 
