@@ -1,27 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="style.css">
-  <title>User Display</title>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Barlow|Montserrat|Viga&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+  <title>Inquiries</title>
 </head>
 <body>
 
   <nav>
     <div class="nav-wrapper">
-      <a href="#" class="brand-logo">Guardian</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="adoption.html">Adoption</a></li>
-        <li><a href="intake.html">Intake</a></li>
-        <li><a href="animals.html">Animals</a></li>
-      </ul>
+      <div class="container">
+        <a href="#" class="sidenav-trigger" data-target="slide-out"><i class="material-icons" id="sidenav">menu</i></a>
+        <a href="index.html" class="brand-logo" id="logo">GUARDIAN</a>
+        <ul class="right hide-on-med-and-down">
+          <li class="navMenu"><a href="adoption.html">Adoption</a></li>
+          <li class="navMenu"><a href="intake.html">Intake</a></li>
+          <li class="navMenu"><a href="animals.html">Animals</a></li>
+          <li class="navMenu"><a href="users.html">Inquiries</a></li>
+        </ul>
+      </div>
     </div>
   </nav>
 
+<ul class="sidenav" id="slide-out">
+  <li>
+    <a href="adoption.html">
+      <p>Adoption</p>
+    </a>
+  </li>
+  <li>
+    <a href="users.html">
+      <p>Inquiries</p>
+    </a>
+  </li>
+  <li>
+    <a href="intake.html">
+      <p>Intake</p>
+    </a>
+  </li>
+  <li>
+    <a href="animals.html">
+      <p>Animals</p>
+    </a>
+  </li>
+</ul>
+
+
   <div id="users"></div>
   
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script>const slideMenu = document.querySelectorAll('.sidenav');
+  M.Sidenav.init(slideMenu, {});
+</script>
+
 </body>
 </html>
