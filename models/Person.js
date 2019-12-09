@@ -5,9 +5,9 @@ module.exports = (sequelize, Model, DataTypes) => {
   firstName: DataTypes.STRING,
   lastName: DataTypes.STRING,
   age: DataTypes.INTEGER,
-  address: DataTypes.STRING,
   phone: DataTypes.STRING,
   email: DataTypes.STRING,
+  petId: DataTypes.STRING
   }, { sequelize, modelName: 'person' })
 
   return Person
