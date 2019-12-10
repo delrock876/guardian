@@ -4,7 +4,7 @@ module.exports = app => {
 
     //get all people
     app.get('/person', (req, res) =>{
-        Person.findAll({ include: Animal })
+        Person.findAll({ incude: Animal})
             .then(person =>{
                 res.json(person)
             })
