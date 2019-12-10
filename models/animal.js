@@ -12,7 +12,8 @@ module.exports = (sequelize, Model, DataTypes) =>{
         isClean: {type: DataTypes.BOOLEAN, defaultValue: false},
         isPlayed: {type: DataTypes.BOOLEAN, defaultValue: false},
         adoptReady: {type: DataTypes.BOOLEAN, defaultValue: false},
-        isAdopted: {type: DataTypes.BOOLEAN, defaultValue: false}
+        isAdopted: {type: DataTypes.BOOLEAN, defaultValue: false},
+        adoptName: DataTypes.STRING
 
     }, { sequelize, modelName: 'animal'})
 

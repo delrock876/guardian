@@ -114,12 +114,12 @@
 
 //get all users
 
-const getPerson =_=> {
-  axios.get('/person')
-    .then(( { data }) => console.log(data[0]))
-  }
+// const getPerson =_=> {
+//   axios.get('/person')
+//     .then(( { data }) => console.log(data[0]))
+//   }
 
-getPerson()
+// getPerson()
 
 //add users
 const addPerson =_=> {
@@ -159,7 +159,6 @@ const removePerson = id => {
   
   document.getElementById('submitButton').addEventListener('click', e => {
     e.preventDefault()
-    let id = document.getElementById('petId').value
     
       addPerson()
 
@@ -173,15 +172,6 @@ const removePerson = id => {
   }
   )
 
-  // Merge Pet and Person
-
-  const adopt  = _ => {
-    axios.put('/person')
-    .then(({ data }) => {
-      console.log(data)
-    })
-  }
-  
   const addAdopt = _ => {
     // if the adopt ready parameter is true
 
@@ -230,7 +220,6 @@ const removePerson = id => {
   .catch(e => console.log(e))
   }
   addAdopt()
-  adopt()
   
 </script>
 
