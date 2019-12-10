@@ -107,7 +107,7 @@ const checkAdopt =(data)=>{
   return (data.isAdopted === false)
 }
    let newArr = data.filter(checkAdopt)
-   
+
     document.getElementById('animal').innerHTML = `${newArr.length}`
   })
   .catch(e =>console.error(e))
