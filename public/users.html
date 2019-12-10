@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css?family=Barlow|Montserrat|Viga&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="./style.css">
-  <title>Inquiries</title>
+  <title>Adopted Animals</title>
 </head>
 <body>
 
@@ -23,7 +23,7 @@
           <li class="navMenu"><a href="adoption.html">Adoption</a></li>
           <li class="navMenu"><a href="intake.html">Intake</a></li>
           <li class="navMenu"><a href="animals.html">Animals</a></li>
-          <li class="navMenu"><a href="users.html">Inquiries</a></li>
+          <li class="navMenu"><a href="users.html">Adopted</a></li>
         </ul>
       </div>
     </div>
@@ -37,7 +37,7 @@
   </li>
   <li>
     <a href="users.html">
-      <p>Inquiries</p>
+      <p>Adopted</p>
     </a>
   </li>
   <li>
@@ -53,27 +53,57 @@
 </ul>
 
 
-  <div id="users"></div>
+<div class="container">
+
+    <div id="animalDisplay">
+      <h1>Adopted Animals:</h1>
+    </div>
+
+  </div>
   
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://kit.fontawesome.com/19501f4ba3.js" crossorigin="anonymous"></script>
 <script>const slideMenu = document.querySelectorAll('.sidenav');
   M.Sidenav.init(slideMenu, {});
 
-axios.get('/person')
-  .then(_=>{
-    
-  })
+  const getAnimal = _ => {
+      axios.get('/animal')
+        .then(({ data }) => {
 
+          data.forEach(animal => {
 
+            if(animal.isAdopted === true){
 
+              let animalElem = document.createElement('div')
+              console.log(animal)
 
+              animalElem.innerHTML = `
+              <div class="row">
+                <div class="col m4">
+                  <div class="card">
+                    <div class="card-image">
+                      <img src="${animal.image || './assets/images/default.gif'}">
+                      <a class="btn-floating halfway-fab waves-effect orange"><i class="material-icons" id="addPet" data-animals="${animal.id}" data-state="${animal.adoptReady}">${animal.adoptReady ? 'check' : 'add'}</i></a>
+                      </div>
+                      <div class="card-content">
+         <p> Name: ${animal.name} </p>
+                 <p> Age: ${animal.age} </p>
+                 <p> Breed: ${animal.breed} </p>
+                 <span style="font-size: 3em; color: DarkBlue;">
+               <i class="fas fa-${animal.breed}"></i>
+                    </span>
+                    `
+                    
+                    document.getElementById('animalDisplay').append(animalElem)
+                  }
+          })
+        })
+        .catch(e => console.log(e))
+      }
 
-
-
+getAnimal()
 
 </script>
-
-
 </body>
 </html>
