@@ -74,43 +74,45 @@
 
           data.forEach(animal => {
 
-            let animalElem = document.createElement('div')
-            console.log(animal)
+            if(animal.isAdopted === false){
 
-            animalElem.innerHTML = `
-        <div class="row">
-        <div class="col m4">
-        <div class="card">
-        <div class="card-image">
-          <img src="${animal.image || './assets/images/default.gif'}">
-          <a class="btn-floating halfway-fab waves-effect orange"><i class="material-icons" id="addPet" data-animals="${animal.id}" data-state="${animal.adoptReady}">${animal.adoptReady ? 'check' : 'add'}</i></a>
-        </div>
-        <div class="card-content">
+              let animalElem = document.createElement('div')
+              console.log(animal)
+
+              animalElem.innerHTML = `
+              <div class="row">
+                <div class="col m4">
+                  <div class="card">
+                    <div class="card-image">
+                      <img src="${animal.image || './assets/images/default.gif'}">
+                      <a class="btn-floating halfway-fab waves-effect orange"><i class="material-icons" id="addPet" data-animals="${animal.id}" data-state="${animal.adoptReady}">${animal.adoptReady ? 'check' : 'add'}</i></a>
+                      </div>
+                      <div class="card-content">
          <p> Name: ${animal.name} </p>
                  <p> Age: ${animal.age} </p>
                  <p> Breed: ${animal.breed} </p>
                  <div class="container">
                   <div class="row">
-                 <div class="switch col s6">
-                  <p>Fed?</p>
-                  <label>
+                    <div class="switch col s6">
+                      <p>Fed?</p>
+                      <label>
                     No
                     <input type="checkbox" ${animal.isFed ? 'checked' : ''} data-state="${animal.isFed}">
                     <span class="lever" id="isFed" data-animals = "${animal.id}"></span>
                     Yes
-                  </label>
-                </div>
-                <div class="switch col s6">
-                  <p>Walked?</p>
-                  <label>
-                    No
-                    <input type="checkbox" ${animal.isWalked ? 'checked' : ''} data-state="${animal.isWalked}" >
-                    <span class="lever" id="isWalked" data-animals = "${animal.id}" ></span>
-                    Yes
-                  </label>
-                </div>
-                </div>
-                <div class="row">
+                    </label>
+                    </div>
+                    <div class="switch col s6">
+                      <p>Walked?</p>
+                      <label>
+                        No
+                        <input type="checkbox" ${animal.isWalked ? 'checked' : ''} data-state="${animal.isWalked}" >
+                        <span class="lever" id="isWalked" data-animals = "${animal.id}" ></span>
+                        Yes
+                        </label>
+                        </div>
+                        </div>
+                        <div class="row">
                 <div class="switch col s6">
                   <p>Cleaned?</p>
                   <label>
@@ -119,7 +121,7 @@
                     <span class="lever" id="isClean" data-animals = "${animal.id}"></span>
                     Yes
                   </label>
-                </div>
+                  </div>
                 <div class="switch col s6">
                   <p>Played?</p>
                   <label>
@@ -127,22 +129,23 @@
                     <input type="checkbox" ${animal.isPlayed ? 'checked' : ''} data-state="${animal.isPlayed}">
                     <span class="lever" id="isPlayed" data-animals = "${animal.id}"></span>
                     Yes
-                  </label>
-                </div>
-                </div>
-                </div>
-        </div>
-      </div>
-      </div>
-      </div>
-        `
-        
-            document.getElementById('animalDisplay').append(animalElem)
+                    </label>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    `
+                    
+                    document.getElementById('animalDisplay').append(animalElem)
+                  }
           })
         })
         .catch(e => console.log(e))
-    }
-
+      }
+      
     //update animal
     const updateAnimal = id => {
       axios.put(`/animal/:${id}`)
