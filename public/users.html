@@ -67,6 +67,21 @@
 <script>const slideMenu = document.querySelectorAll('.sidenav');
   M.Sidenav.init(slideMenu, {});
 
+const showRelation =_=>{
+  axios.get('/person')
+  .then(({data})=>{
+   console.log(data)
+   data.forEach(person=>{
+     console.log(
+      `Animal ID:${person.animalId} 
+     
+      ${person.firstName} ${person.lastName} adopted ${person.animal.name} on ${person.updatedAt}`)
+   })
+  })
+  .catch(e => console.log(e))
+}
+showRelation()
+
   const getAnimal = _ => {
       axios.get('/animal')
         .then(({ data }) => {
@@ -76,7 +91,6 @@
             if(animal.isAdopted === true){
 
               let animalElem = document.createElement('div')
-              console.log(animal)
 
               animalElem.innerHTML = `
               <div class="row">
