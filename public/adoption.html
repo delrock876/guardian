@@ -24,6 +24,7 @@
           <li class="navMenu"><a href="adoption.html">Adoption</a></li>
           <li class="navMenu"><a href="intake.html">Intake</a></li>
           <li class="navMenu"><a href="animals.html">Animals</a></li>
+          <li class="navMenu"><a href="users.html">Inquiries</a></li>
         </ul>
       </div>
     </div>
@@ -33,6 +34,11 @@
     <li>
       <a href="adoption.html">
         <p>Adoption</p>
+      </a>
+    </li>
+    <li>
+      <a href="users.html">
+        <p>Inquiries</p>
       </a>
     </li>
     <li>
@@ -51,7 +57,6 @@
   <br>
   <div id='container' class="container">
     <div class="row">
-      <form class="col s12">
         <div class="row">
           <div class="input-field col s6">
             <input placeholder="First Name" id="first_name" type="text" class="validate">
@@ -82,6 +87,7 @@
           <div class="input-field col s6">
             <input type="text" id="petId" class="autocomplete" placeholder="Enter ID of pet">
 
+            <!-- start modal -->
             <div id="info" class="modal">
               <div class="modal-content">
                 <h4>Thank You</h4>
@@ -98,10 +104,11 @@
       </div>
     </div>
   </div>
+  <!-- end -->
   <br>
   <!-- Collection of adopt ready animals -->
-  <div id="adoptReady">
-  </div>
+  <div id="adoptReady"></div>
+
   <div id="currentInq"></div>
 
 
@@ -128,7 +135,7 @@ const addPerson =_=> {
     lastName: document.getElementById('last_name').value,
     email: document.getElementById('email').value,
     phone: document.getElementById('phoneNumber').value,
-    petID: document.getElementById('petId').value
+    petId: document.getElementById('petId').value
   })
   .then(() => {
     console.log('ok')
@@ -181,12 +188,7 @@ const removePerson = id => {
         // console.log(animal.isFed, animal.isClean, animal.isWalked, animal.isPlayed)
 
         if(animal.adoptReady === true && animal.isAdopted === false) {
-          // console.log(`
-          // Name:${animal.name}
-          // Age: ${animal.age}
-          // Type: ${animal.type}
-          // Breed: ${animal.breed}`)
-
+      
           let adoptElem = document.createElement('div')
       
       adoptElem.innerHTML = `
@@ -204,7 +206,8 @@ const removePerson = id => {
                   <br>
                   Breed: ${animal.breed}
                   <br>
-                  Pet ID: ${animal.id}
+                  ID: ${animal.id}
+                  <br>
                 </p>
               </li>
             </ul>
