@@ -31,6 +31,12 @@ h4 {
   color: #003B5C;
 }
 
+#error{
+margin-left: 25px;
+font-family: 'Barlow', sans-serif;
+color:red;
+font-weight: bold;
+}
 
 /* Adopt page icons */
 #home {
