@@ -55,9 +55,10 @@
 
 <div class="container">
 
-    <div id="animalDisplay">
-      <h4>Adopted Animals:</h4>
-    </div>
+  <h4>Adopted Animals:</h4>
+
+    <ul class="collection"id="animalDisplay">
+    </ul>
 
   </div>
   
@@ -67,42 +68,29 @@
 <script>const slideMenu = document.querySelectorAll('.sidenav');
   M.Sidenav.init(slideMenu, {});
 
-  const getAnimal = _ => {
-      axios.get('/animal')
-        .then(({ data }) => {
+const showRelation =_=>{
+  axios.get('/person')
+  
+  .then(({data})=>{
+    data.forEach(person=>{
+      
+    let adopted = document.createElement("li")
+    adopted.className = `collection-item`
+    adopted.innerHTML = `
 
-          data.forEach(animal => {
+    <span class="secondary-content"style="font-size: 1.5em; color: DarkBlue;">
+      <i class="fas fa-dog"></i>
+    </span>
+      ${person.firstName} ${person.lastName} adopted [Animal ID: ${person.animalId}] on ${person.updatedAt}.`
+     
+     document.getElementById('animalDisplay').append(adopted)
+   })
+  })
+  .catch(e => console.log(e))
+}
+showRelation()
 
-            if(animal.isAdopted === true){
 
-              let animalElem = document.createElement('div')
-              console.log(animal)
-
-              animalElem.innerHTML = `
-              <div class="row">
-                <div class="col m4">
-                  <div class="card">
-                    <div class="card-image">
-                      <img src="${animal.image || './assets/images/default.gif'}">
-                      <a class="btn-floating halfway-fab waves-effect orange"><i class="material-icons" id="addPet" data-animals="${animal.id}" data-state="${animal.adoptReady}">${animal.adoptReady ? 'check' : 'add'}</i></a>
-                      </div>
-                      <div class="card-content">
-         <p> Name: ${animal.name} </p>
-                 <p> Age: ${animal.age} </p>
-                 <p> Breed: ${animal.breed} </p>
-                 <span style="font-size: 3em; color: DarkBlue;">
-               <i class="fas fa-${animal.type}"></i>
-                    </span>
-                    `
-                    
-                    document.getElementById('animalDisplay').append(animalElem)
-                  }
-          })
-        })
-        .catch(e => console.log(e))
-      }
-
-getAnimal()
 
 </script>
 </body>
