@@ -101,9 +101,14 @@ axios.get('/person')
 
 // get animal count
 axios.get('/animal')
-  .then((response)=>{
-    console.log(response.data.length)
-    document.getElementById('animal').innerHTML = `${response.data.length}`
+  .then(({data})=>{
+
+const checkAdopt =(data)=>{
+  return (data.isAdopted === false)
+}
+   let newArr = data.filter(checkAdopt)
+   
+    document.getElementById('animal').innerHTML = `${newArr.length}`
   })
   .catch(e =>console.error(e))
     

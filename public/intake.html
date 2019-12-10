@@ -84,7 +84,7 @@
           <div class="input-field col s6">
             <!-- <input placeholder="Link to image" id="image" type="text" class="validate"> -->
             <select id="selectPicture">
-              <option value="">Choose a picture</option>
+              <option value="" id="pic">Choose a picture</option>
               <option value="dog">Dog</option>
               <option value="cat">Cat</option>
               <option value="lizard">Lizard</option>
@@ -117,6 +117,8 @@
       </div>
     </div>
 
+    <div id="error"></div>
+
     <div id="petAdded"></div>
 
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -148,24 +150,40 @@
           type: document.getElementById('type').value,
           image: `./assets/images/${picture}.jpg`
         })
-          .then(() => {
-            console.log('ok')
+          .then(_=> {
+            M.Modal.init(document.querySelectorAll(`.modal`), {})
+            M.Modal.getInstance(document.getElementById(`info`)).open()
           })
-          .catch(e => console.log(e))
+          .catch(e => console.error(e))
       }
 
 
       document.getElementById('submitButton').addEventListener('click', e => {
         e.preventDefault()
+        
+        let error = document.getElementById('error').value
+        let name = document.getElementById('name').value
+        let breed = document.getElementById('breed').value
+        let age =document.getElementById('age').value
+        let type = document.getElementById('type').value 
+        
+        if((name.length === 0) || (breed.length === 0) || (age.length===0)||(type.length===0)){
+          let errorMsg = document.createElement('p')
+          errorMsg.innerHTML = `Please fill out all fields before submitting.`
+          document.getElementById('error').innerHTML = `${errorMsg.innerHTML}`
+          
+        }else { 
+          addAnimal()
+        
+          document.getElementById('error').innerHTML = ''
+          document.getElementById('name').value=''
+          document.getElementById('breed').value=''
+          document.getElementById('age').value=''
+          document.getElementById('type').value=''
+          document.getElementById('pic').innerHTML=''
+          
+        }
 
-        addAnimal()
-        document.getElementById('name').value = ''
-        document.getElementById('breed').value = ''
-        document.getElementById('age').value = ''
-        document.getElementById('type').value = ''
-
-        M.Modal.init(document.querySelectorAll(`.modal`), {})
-        M.Modal.getInstance(document.getElementById(`info`)).open()
 
       })
     </script>

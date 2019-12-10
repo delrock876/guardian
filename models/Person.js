@@ -4,10 +4,8 @@ module.exports = (sequelize, Model, DataTypes) => {
   Person.init({
   firstName: DataTypes.STRING,
   lastName: DataTypes.STRING,
-  age: DataTypes.INTEGER,
   phone: DataTypes.STRING,
-  email: DataTypes.STRING,
-  petId: DataTypes.STRING
+  email: DataTypes.STRING
   }, { sequelize, modelName: 'person' })
 
   return Person

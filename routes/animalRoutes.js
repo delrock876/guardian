@@ -19,12 +19,6 @@ module.exports = app =>{
             .catch(e => console.error(e))
     })
 
-    // app.get('/animalcount', (req, res) => {
-    //     Animal.count()
-    //         .then(count => res.json(count))
-    //         .catch(e => console.error(e))
-    // })
-
 //add new animal 
     app.post('/animal', (req, res) =>{
         Animal.create(req.body)
