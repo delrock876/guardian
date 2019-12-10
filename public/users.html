@@ -62,23 +62,27 @@
 
   </div>
   
+  <script>"https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"</script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script>"https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"</script>
   <script src="https://kit.fontawesome.com/19501f4ba3.js" crossorigin="anonymous"></script>
 <script>const slideMenu = document.querySelectorAll('.sidenav');
   M.Sidenav.init(slideMenu, {});
 
 const showRelation =_=>{
   axios.get('/person')
-
   
   .then(({data})=>{
     data.forEach(person=>{
+      
     
     let adopted = document.createElement("li")
     adopted.className = `collection-item`
     adopted.innerHTML = `
+
+    <span class="secondary-content"style="font-size: 1.5em; color: DarkBlue;">
+      <i class="fas fa-dog"></i>
+    </span>
       ${person.firstName} ${person.lastName} adopted [Animal ID: ${person.animalId}] on ${person.updatedAt}.`
      
      document.getElementById('animalDisplay').append(adopted)
