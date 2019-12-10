@@ -62,7 +62,6 @@
 
   </div>
   
-  <script>"https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"</script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="https://kit.fontawesome.com/19501f4ba3.js" crossorigin="anonymous"></script>
@@ -75,7 +74,6 @@ const showRelation =_=>{
   .then(({data})=>{
     data.forEach(person=>{
       
-    
     let adopted = document.createElement("li")
     adopted.className = `collection-item`
     adopted.innerHTML = `
@@ -92,41 +90,6 @@ const showRelation =_=>{
 }
 showRelation()
 
-  const getAnimal = _ => {
-      axios.get('/animal')
-        .then(({ data }) => {
-
-          data.forEach(animal => {
-
-            if(animal.isAdopted === true){
-
-              let animalElem = document.createElement('div')
-
-              animalElem.innerHTML = `
-              <div class="row">
-                <div class="col m4">
-                  <div class="card">
-                    <div class="card-image">
-                      <img src="${animal.image || './assets/images/default.gif'}">
-                      <a class="btn-floating halfway-fab waves-effect orange"><i class="material-icons" id="addPet" data-animals="${animal.id}" data-state="${animal.adoptReady}">${animal.adoptReady ? 'check' : 'add'}</i></a>
-                      </div>
-                      <div class="card-content">
-         <p> Name: ${animal.name} </p>
-                 <p> Age: ${animal.age} </p>
-                 <p> Breed: ${animal.breed} </p>
-                 <span style="font-size: 3em; color: DarkBlue;">
-               <i class="fas fa-${animal.breed}"></i>
-                    </span>
-                    `
-                    
-                    document.getElementById('animalDisplay').append(animalElem)
-                  }
-          })
-        })
-        .catch(e => console.log(e))
-      }
-
-// getAnimal()
 
 </script>
 </body>
