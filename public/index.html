@@ -59,10 +59,10 @@
         <li>
           <div class="collapsible-header">
             <i class="material-icons transparent-icons">pets</i>
-            Recently Adopted
+            Pending Adoptions
             <span class="new badge" id="count"></span></div>
           <div class="collapsible-body">
-            <p>Animals have been recently adopted.</p>
+            <p>Adoption registration documents pending finalization.</p>
           </div>
         </li>
         <li>
@@ -107,7 +107,7 @@ const checkAdopt =(data)=>{
   return (data.isAdopted === false)
 }
    let newArr = data.filter(checkAdopt)
-
+   
     document.getElementById('animal').innerHTML = `${newArr.length}`
   })
   .catch(e =>console.error(e))
