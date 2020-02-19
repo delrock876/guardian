@@ -16,7 +16,7 @@ https://agile-mesa-62002.herokuapp.com/
 4. Fill out the form under 'Intake' to accept any new animals into the shelter.
 5.Under the animals page will have all the current animals and all the care require
 
-<img src="./assets/guardian.PNG" height="350" width="200"><img src="./assets/guardian2.PNG" height="350" width="200"><img src="./assets/guardian3.PNG" height="350" width="200">
+<img src="./assets/guardian.PNG" height="300" width="200"><img src="./assets/guardian2.PNG" height="300" width="200"><img src="./assets/guardian3.PNG" height="300" width="200">
 
 ### Technologies Used
 
