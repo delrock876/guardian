@@ -1,6 +1,6 @@
 # Guardian
 
-An system application for animal shelters that allows for basic administrative/operational functions i.e. animal care management, adoption registration and setup of database for animal profiles. Leveraging front and backend technologies, establishing a comprehensive database and seamless communication structure with client and server side information.
+A system application for animal shelters that allows for basic administrative/operational functions i.e. animal care management, adoption registration and setup of database for animal profiles. Leveraging front and backend technologies, establishing a comprehensive database and seamless communication structure with client and server side information.
 
 ==== 
 
